@@ -1,16 +1,18 @@
-import * as mongoose from 'mongoose'
+import * as mongoose from "mongoose";
 
 export default new mongoose.Schema({
     trackId: String,
     count: Number,
     apiLink: String,
-    artists: [{
-        artistId: String,
-        apiLink: String,
-        name: String,
-        popularity: Number,
-        genres: [String]
-    }],
+    artists: [
+        {
+            artistId: String,
+            apiLink: String,
+            name: String,
+            popularity: Number,
+            genres: [String],
+        },
+    ],
     popularity: Number,
     audioFeatures: {
         acousticness: Number,
@@ -26,6 +28,6 @@ export default new mongoose.Schema({
         speechiness: Number,
         tempo: Number,
         time_signature: Number,
-        valence: Number
-    }
-})
+        valence: Number,
+    },
+});

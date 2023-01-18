@@ -1,10 +1,9 @@
-
-let i = 1
+let i = 1;
 
 async function sendRequest() {
-        console.log(i)
+    console.log(i);
 
-        if (++i <= 10) setTimeout(sendRequest, 1000);
+    if (++i <= 10) setTimeout(sendRequest, 1000);
 }
 
 setTimeout(sendRequest, 10);

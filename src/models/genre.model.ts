@@ -1,4 +1,4 @@
-import { Schema }   from 'mongoose'        
+import { Schema } from "mongoose";
 
 export default new Schema({
     name: String,
@@ -9,8 +9,8 @@ export default new Schema({
                 trackId: String,
                 trackName: String,
                 artistId: String,
-                artistName: String
-            }
-        ]
-    }
-})
+                artistName: String,
+            },
+        ],
+    },
+});

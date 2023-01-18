@@ -1,15 +1,15 @@
-import      { validationResult }  from "express-validator"
+import { validationResult } from "express-validator";
 
 export const checkErrors = (req, res, next) => {
-    const errors = validationResult(req)
+    const errors = validationResult(req);
 
-    if(!errors.isEmpty()) {
+    if (!errors.isEmpty()) {
         return next({
             success: false,
             status: 400,
-            message: errors.array()
-        })
+            message: errors.array(),
+        });
     }
 
-    return next()
-}
+    return next();
+};

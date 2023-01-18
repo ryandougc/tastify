@@ -1,13 +1,13 @@
 function recursion(i) {
-    console.log(i)
+    console.log(i);
 
-    i++
+    i++;
 
-    if(i < 6) {
-        recursion(i)
+    if (i < 6) {
+        recursion(i);
     }
 
-    return
+    return;
 }
 
-recursion(1)
+recursion(1);
