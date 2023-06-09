@@ -1,0 +1,250 @@
+import mongoose from "mongoose";
+import * as queryString from "query-string";
+import axios from "axios";
+
+import { validateQueryString } from "../validators/validator";
+import { checkErrors } from "../validators/checkErrors";
+
+import { createGenreBreakdownService } from "../services/createGenreBreakdown";
+import { getTopTenService } from "../services/getTopTen";
+import { saveGenreBreakdownService } from "../services/saveGenreBreakdown";
+import { getPublicUserTracksService } from "../services/getPublicUserTracks";
+import { getUserDataFromDbService } from "../services/getUserDataFromDb";
+import getCurrentUserTracksService from "../services/getCurrentUserTracks";
+
+import { checkUserExistsInDb, getArrayFromMap, pushToHash, pushTrackToMapAsTrackEntry } from "../lib/utils";
+
+import profileSchema from "../models/profile";
+import { getTop50TracksService } from "../services/getTop50Tracks";
+import { IArtistEntry } from "../interfaces/IArtist";
+import { getArtistsFromTracksService } from "../services/getArtistsFromTracks";
+import { getArtistGenresService } from "../services/getArtistGenres";
+import { appendGenresToTracksService } from "../services/appendGenresToTracks";
+
+export const getMyDetails = async (req, res, next) => {
+    try {
+        const Profile = mongoose.model(
+            "Profile",
+            profileSchema,
+            req.session.userId
+        );
+
+        const response = await axios({
+            method: "GET",
+            url: "https://api.spotify.com/v1/me",
+            headers: {
+                Authorization: `Bearer ${req.session.access_token}`,
+            },
+            responseType: "json",
+        });
+
+        const newUser = {
+            spotifyUserId: response.data.id,
+            dateCreated: Date.now(),
+            dateLastRetrievedData: Date.now(),
+        };
+
+        const profile = new Profile(newUser);
+
+        profile.save();
+
+        res.send(response.data);
+    } catch (err) {
+        console.log(err);
+
+        return next({
+            success: false,
+            status: 500,
+            message: "Uh oh, something went wrong on our side",
+        });
+    }
+};
+
+export const analyzeMyData = async (req, res, next) => {
+    try {
+        console.time();
+        const currentUserTracks = await getCurrentUserTracksService(
+            req.session.access_token
+        );
+
+        const currentUserGenreBreakdown = await createGenreBreakdownService(
+            currentUserTracks
+        );
+
+        await saveGenreBreakdownService(
+            currentUserGenreBreakdown,
+            req.session.userId
+        );
+
+        console.timeEnd();
+        res.json(getArrayFromMap(currentUserGenreBreakdown));
+    } catch (err) {
+        console.log(err);
+
+        return next({
+            success: false,
+            status: 500,
+            message: "Uh oh, something went wrong on our side",
+        });
+    }
+};
+
+export const analyzePublicUserData = async (req, res, next) => {
+    try {
+        const userId = req.params.userId;
+
+        const publicUserTracks = await getPublicUserTracksService(
+            req.session.access_token,
+            userId
+        );
+
+        const publicUserGenreBreakdown = await createGenreBreakdownService(
+            publicUserTracks
+        );
+
+        res.json(getArrayFromMap(publicUserGenreBreakdown));
+    } catch (err) {
+        console.log(err);
+
+        return next({
+            success: false,
+            status: 500,
+            message: "Uh oh, something went wrong on our side",
+        });
+    }
+};
+
+export const getMyAnalysis = async (req, res, next) => {
+    try {
+        const userId = req.session.userId;
+
+        const currentUserGenreBreakdown = await getUserDataFromDbService(
+            userId
+        );
+
+        const currentUserTopTenGenres = await getTopTenService(
+            currentUserGenreBreakdown
+        );
+
+        res.json(currentUserTopTenGenres);
+    } catch (err) {
+        console.log(err);
+
+        return next({
+            success: false,
+            status: 500,
+            message: "Uh oh, something went wrong on our side",
+        });
+    }
+};
+
+export const compareDataToUser = [
+    validateQueryString,
+    checkErrors,
+    async (req, res, next) => {
+        try {
+            if (req.query.userid === undefined) {
+                return res.send("You must input a user's email");
+            }
+
+            const currentUserId = req.session.userId;
+            const publicUserId = req.query.userid;
+
+            let publicUserGenreBreakdown;
+
+            if (await checkUserExistsInDb(publicUserId)) {
+                publicUserGenreBreakdown =
+                    getUserDataFromDbService(publicUserId);
+            } else {
+                const publicUserTracks = await getPublicUserTracksService(
+                    req.session.access_token,
+                    publicUserId
+                );
+
+                publicUserGenreBreakdown = await createGenreBreakdownService(
+                    publicUserTracks
+                );
+            }
+
+            let currentUserGenreBreakdown;
+
+            if (await checkUserExistsInDb(currentUserId)) {
+                currentUserGenreBreakdown = await getUserDataFromDbService(
+                    currentUserId
+                );
+            } else {
+                const currentUserTracks = await getCurrentUserTracksService(
+                    req.session.access_token
+                );
+
+                currentUserGenreBreakdown = await createGenreBreakdownService(
+                    currentUserTracks
+                );
+
+                await saveGenreBreakdownService(
+                    currentUserGenreBreakdown,
+                    req.session.userId
+                );
+            }
+
+            const publicUserTopTenGenres = await getTopTenService(
+                publicUserGenreBreakdown
+            );
+            const currentUserTopTenGenres = await getTopTenService(
+                currentUserGenreBreakdown
+            );
+
+            res.status(200).send({
+                publicUserTopTenGenres,
+                currentUserTopTenGenres,
+            });
+        } catch (err) {
+            console.log(err);
+
+            return next({
+                success: false,
+                status: 500,
+                message: "Uh oh, something went wrong on our side",
+            });
+        }
+    },
+];
+
+export const getTop50Tracks = async (req, res, next) => {
+    try {
+        axios.defaults.headers.common[
+            "Authorization"
+        ] = `Bearer ${req.session.access_token}`;
+        axios.defaults.responseType = "json";
+
+        let top50Tracks = new Map()
+
+        const top50TracksResponse = await getTop50TracksService()
+
+        pushTrackToMapAsTrackEntry(top50TracksResponse, top50Tracks)
+
+        // Create map of artists from map of tracks
+        let artistsOfTop50Tracks: Map<string, IArtistEntry> = await getArtistsFromTracksService(top50Tracks);
+
+        // Get genres of artists
+        artistsOfTop50Tracks = await getArtistGenresService(artistsOfTop50Tracks)
+
+        // Append artist genres to tracks
+        top50Tracks = await appendGenresToTracksService(top50Tracks, artistsOfTop50Tracks);
+
+        // Create hashmap of genres
+        const genreBreakdown = await createGenreBreakdownService(top50Tracks);
+
+        const topTepGenresFromTopFifty = await getTopTenService(genreBreakdown);
+
+        res.json(topTepGenresFromTopFifty);
+    } catch (err) {
+        console.log(err);
+
+        return next({
+            success: false,
+            status: 500,
+            message: "Uh oh, something went wrong on our side",
+        });
+    }
+};

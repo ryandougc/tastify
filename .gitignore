@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+delete-this-random-functions
+coverage
+var/db/sessions.db
