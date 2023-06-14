@@ -18,9 +18,7 @@ export const createProfile = [
             const newProfile = new Profile(
                 req.body.spotifyUsername
             )
-
-            console.log(newProfile)
-
+            
             // Save Profile to database
             await newProfile.save()
 

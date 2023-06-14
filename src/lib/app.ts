@@ -44,7 +44,7 @@ export default class App {
     async initDB() {
         // Connect to the MongoDB database
         try {
-            await mongoose.connect('mongodb+srv://ryan:Sportking11!@cluster0.v1mw48k.mongodb.net/?retryWrites=true', {
+            await mongoose.connect('mongodb+srv://ryan:Sportking11!@cluster0.v1mw48k.mongodb.net/?retryWrites=true&w=majority', {
                 dbName: 'testing',
                 useNewUrlParser: true,
                 useUnifiedTopology: true

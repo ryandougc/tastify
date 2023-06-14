@@ -34,6 +34,8 @@ export const MongoComparison = mongoose.model<Comparison>('Comparison', comparis
 // Add all the functions to act on the schema
 export const createUserProfile = async (userProfile: Profile): Promise<boolean> => {
     try {
+        console.log({userProfile})
+
         await MongoProfile.create({ 
             profileId: userProfile.profileId,  
             spotifyUsername: userProfile.spotifyUsername,
@@ -69,7 +71,9 @@ export const getUserProfile = async (profileId: string): Promise<Profile> => {
 
 export const checkUserProfileExists = async (profileId: string): Promise<boolean> => {
     try {
-        await MongoProfile.exists({ profileId: profileId }).exec()
+        const result = await MongoProfile.exists({ profileId: profileId }).exec()
+
+        if(result === null) return false
 
         return true
     } catch(error) {
@@ -190,6 +194,8 @@ export const getUserProfileBySpotifyUsername = async (spotifyUsername: string): 
     try {
         const profileData = await MongoProfile.findOne({ spotifyUsername: spotifyUsername })
             .select('-_id profileId spotifyUsername dateCreated analysis').exec()
+
+        if(profileData === null) throw new Error("This user could not be found")
 
         const profile = new Profile(
             profileData.spotifyUsername,

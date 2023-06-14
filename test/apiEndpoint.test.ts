@@ -5,8 +5,13 @@
 import * as dotenv from "dotenv";
 import * as path from "path";
 import * as supertest from 'supertest'
+import mongoose from 'mongoose'
 import App from '../src/lib/app'
 import * as db from '../src/lib/dbDriver'
+import {
+    MongoProfile,
+    MongoComparison
+} from '../src/lib/connect-mongo'
 
 // Global Setup
 dotenv.config({ path: path.join(__dirname, "../.env") });
@@ -14,8 +19,16 @@ const app = new App().express
 
 describe('POST /user', () => {
     afterEach(async () => {
-        // Delete any added user from the database
+        // Remove the test document from the database after the tests
+        await MongoProfile.deleteMany({})
+        await MongoComparison.deleteMany({})
     })
+
+    afterAll(async () => {
+        if (mongoose.connection.readyState !== 0) {
+            await mongoose.disconnect()
+        }
+    });
     it('should create and save a profile to the database, returning http status 201', async () => {
             const bodyParams = "fakeSpotifyUsername"
 

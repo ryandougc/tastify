@@ -165,6 +165,13 @@ describe('Mongo Database Functions', () => {
 
             expect(profileExists).toBe(true)
         })
+        it('should return false if a profile is not found with the profileId', async () => {
+            const profileIdToCheck = 'fakeProfileId'
+
+            const profileExists: boolean = await checkUserProfileExists(profileIdToCheck)
+
+            expect(profileExists).toBe(false)
+        })
     })
     describe('updateUserProfile', () => {
         let globalDummyProfile
