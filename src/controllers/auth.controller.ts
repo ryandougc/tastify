@@ -59,6 +59,8 @@ export const callback = async (req, res, next) => {
             });
 
             // Save the access token and refresh token in the session
+            req.session.access_token = response.data.access_token;
+            req.session.refresh_token = response.data.refresh_token;
 
             const userData = await axios({
                 method: "GET",
