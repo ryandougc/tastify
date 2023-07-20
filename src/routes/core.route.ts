@@ -2,38 +2,25 @@ import * as express from "express";
 
 import { extractAccessTokenFromHeader } from "../middleware/extractAccessTokenFromHeader";
 import { getUserProfileFromAccessToken } from "../middleware/getUserProfileFromAccessToken";
-import { checkTokenIsValid } from "../middleware/checkAccessTokenValid";
 
 import * as coreController from "../controllers/core.controller";
 
 const router = express.Router();
 
-router.get('/test', extractAccessTokenFromHeader, getUserProfileFromAccessToken,(req, res, next) => { 
-    console.log(res.locals.profileId); 
-    return res.status(200).json({
-        success: true,
-        message: res.locals.profileId
-    })
-})
+router.get("/user", extractAccessTokenFromHeader, getUserProfileFromAccessToken, coreController.getUserProfile);
 
-router.post('/user', coreController.createProfile)
+router.delete("/user/:profileId", extractAccessTokenFromHeader, getUserProfileFromAccessToken, coreController.deleteUserProfile);
 
-router.get("/user/:profileId", extractAccessTokenFromHeader, checkTokenIsValid,  coreController.getUserProfile);
+router.get("/user/analysis", extractAccessTokenFromHeader, getUserProfileFromAccessToken, coreController.generateAnalysis);
 
-router.put("/user/:profileId", extractAccessTokenFromHeader, checkTokenIsValid, coreController.updateUserProfile);
+router.get("/user/top50", extractAccessTokenFromHeader, getUserProfileFromAccessToken, coreController.getUsersTop50);
 
-router.delete("/user/:profileId", extractAccessTokenFromHeader, checkTokenIsValid, coreController.deleteUserProfile);
+router.get("/user/friends", extractAccessTokenFromHeader, getUserProfileFromAccessToken, coreController.getUsersFriends);
 
-router.get("/user/:profileId/analysis", extractAccessTokenFromHeader, checkTokenIsValid, coreController.generateAnalysis);
+router.post("/comparison", extractAccessTokenFromHeader, getUserProfileFromAccessToken, coreController.createComparison);
 
-router.get("/user/:profileId/top50", extractAccessTokenFromHeader, checkTokenIsValid, coreController.getUsersTop50);
+router.get("/comparison/:friendsSpotifyUsername", extractAccessTokenFromHeader, getUserProfileFromAccessToken, coreController.getComparison);
 
-router.get("/user/:profileId/friends", extractAccessTokenFromHeader, checkTokenIsValid, coreController.getUsersFriends);
-
-router.post("/comparison", extractAccessTokenFromHeader, checkTokenIsValid, coreController.createComparison);
-
-router.get("/comparison/:user1.:user2", extractAccessTokenFromHeader, checkTokenIsValid, coreController.getComparison);
-
-router.delete("/comparison/:user1.:user2", extractAccessTokenFromHeader, checkTokenIsValid, coreController.deleteComparison);
+router.delete("/comparison/:friendsSpotifyUsername", extractAccessTokenFromHeader, getUserProfileFromAccessToken, coreController.deleteComparison);
 
 export { router };
