@@ -1,5 +1,5 @@
 export const extractAccessTokenFromHeader = (req, res, next) => {
-    if(!req.headers.accessTokenuthorization) {
+    if(!req.headers.authorization) {
         next({
             success: false,
             status: 401,
@@ -7,6 +7,6 @@ export const extractAccessTokenFromHeader = (req, res, next) => {
         })
     }
 
-    req.session.accessToken = req.headers.Authorization
+    res.locals.accessToken = req.headers.authorization
     next()
 };

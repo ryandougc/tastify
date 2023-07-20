@@ -1,11 +1,20 @@
 import * as express from "express";
 
 import { extractAccessTokenFromHeader } from "../middleware/extractAccessTokenFromHeader";
+import { getUserProfileFromAccessToken } from "../middleware/getUserProfileFromAccessToken";
 import { checkTokenIsValid } from "../middleware/checkAccessTokenValid";
 
 import * as coreController from "../controllers/core.controller";
 
 const router = express.Router();
+
+router.get('/test', extractAccessTokenFromHeader, getUserProfileFromAccessToken,(req, res, next) => { 
+    console.log(res.locals.profileId); 
+    return res.status(200).json({
+        success: true,
+        message: res.locals.profileId
+    })
+})
 
 router.post('/user', coreController.createProfile)
 

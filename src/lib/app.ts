@@ -1,6 +1,5 @@
 import express from "express"
 import * as bodyParser from "body-parser"
-import session from "express-session"
 import mongoose, { ConnectOptions } from "mongoose"
 import morgan from "morgan"
 
@@ -17,7 +16,6 @@ export default class App {
     constructor() {
         this.express = express()
         this.initBodyParser()
-        this.initSessions()
         // this.initLogging()
         this.initDB()
         this.mountRoutes()
@@ -25,20 +23,6 @@ export default class App {
 
     initBodyParser() {
         this.express.use(bodyParser.json({ type: 'application/json' }))
-    }
-
-    initSessions() {
-        const SQLiteStore = require("connect-sqlite3")(session)
-
-        this.express.use(
-            session({
-                secret: process.env.SESSION_SECRET,
-                resave: false,
-                saveUninitialized: false,
-                store: new SQLiteStore({ db: "sessions.db", dir: "./var/db" }),
-                cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 },
-            })
-        )
     }
 
     async initDB() {

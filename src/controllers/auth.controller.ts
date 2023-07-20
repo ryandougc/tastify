@@ -4,8 +4,7 @@ import axios from "axios";
 import { generateRandomString } from "../lib/utils";
 
 export const login = (req, res, next) => {
-    req.session.state = generateRandomString(16);
-
+    const state = generateRandomString(16);
     const scope = "user-library-read user-top-read";
 
     res.status(200).send(
@@ -15,7 +14,7 @@ export const login = (req, res, next) => {
                 client_id: process.env.SPOTIFY_CLIENT_ID,
                 scope: scope,
                 redirect_uri: process.env.REDIRECT_URL,
-                state: req.session.state,
+                state: state,
             })
     );
 };
@@ -24,17 +23,15 @@ export const callback = async (req, res, next) => {
     const state = req.query.state || null;
     const code = req.query.code || null;
 
-    if (state === null || state !== req.session.state) {
+    if (state === null) {
         res.redirect(
             "/#" +
-                queryString.stringify({
-                    error: "state_mismatch",
-                })
+            queryString.stringify({
+                error: "state_mismatch",
+            })
         );
     } else {
         try {
-            delete req.session.state;
-
             let bodyFormData = await new URLSearchParams();
 
             bodyFormData.append("grant_type", "authorization_code");
@@ -58,22 +55,21 @@ export const callback = async (req, res, next) => {
                 responseType: "json",
             });
 
-            // Save the access token and refresh token in the session
-            req.session.access_token = response.data.access_token;
-            req.session.refresh_token = response.data.refresh_token;
+            const accessToken = response.data.access_token;
+            const refreshToken = response.data.refresh_token;
 
             const userData = await axios({
                 method: "GET",
                 url: "https://api.spotify.com/v1/me",
                 headers: {
-                    Authorization: `Bearer ${req.session.access_token}`,
+                    Authorization: `Bearer ${accessToken}`,
                 },
                 responseType: "json",
             });
 
             res.status(200).send({
-                accessnToken: response.data.access_token,
-                refreshToken: response.data.refresh_token,
+                accessnToken: accessToken,
+                refreshToken: refreshToken,
                 profileId: userData.data.id
             });
         } catch (err) {
@@ -90,7 +86,15 @@ export const callback = async (req, res, next) => {
 
 export const refreshToken = async (req, res, next) => {
     try {
-        const refreshToken = req.headers("refreshToken")
+        const refreshToken = req.query.refreshToken || null
+
+        if(refreshToken === null) {
+            return next({
+                success: false,
+                status: 401,
+                message: "Looks like you forgot to add the refresh token to your request",
+            });
+        }
 
         let bodyFormData = new URLSearchParams();
 
@@ -114,11 +118,10 @@ export const refreshToken = async (req, res, next) => {
             responseType: "json",
         });
 
-        if (req.session.redirectURL) {
-            return res.redirect(req.session.redirectURL);
-        } else {
-            return res.send(response.data);
-        }
+        res.status(200).send({
+            accessToken: response.data.access_token,
+            accessTokenExpiry: response.data.expires_in
+        });
     } catch (err) {
         console.log(err);
 
