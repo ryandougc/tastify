@@ -8,7 +8,7 @@
         "testWithClearCache": "jest --clearCache && jest",
         "compile": "tsc",
         "compiler": "tsc --watch",
-        "devStart": "nodemon ./dist/src/server"
+        "devStart": "nodemon ./dist/server"
     },
     "author": "",
     "license": "ISC",

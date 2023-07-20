@@ -1,0 +1,46 @@
+{
+    "href": "https://api.spotify.com/v1/users/whitekidfromtheblock/playlists?offset=1&limit=1",
+    "limit": 1,
+    "next": null,
+    "offset": 1,
+    "previous": "https://api.spotify.com/v1/users/whitekidfromtheblock/playlists?offset=0&limit=1",
+    "total": 2,
+    "items": [
+        {
+            "collaborative": false,
+            "description": "Fuck Summer I love it",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/7oibm62uANzc5CliEBdcMr"
+            },
+            "href": "https://api.spotify.com/v1/playlists/7oibm62uANzc5CliEBdcMr",
+            "id": "7oibm62uANzc5CliEBdcMr",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab67706c0000bebbd6a780d635efeefd818e6cef",
+                    "height": null,
+                    "width": null
+                }
+            ],
+            "name": "Double Edged Sword",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "MTMsNTU4YTY1OTMzNmE2ZGEzM2VmOTdjZTM1YjE2NmY0ZTNjZjYzMGNjNQ==",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/7oibm62uANzc5CliEBdcMr/tracks",
+                "total": 7
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:7oibm62uANzc5CliEBdcMr",
+            "primary_color": null
+        }
+    ]
+}

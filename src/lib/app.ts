@@ -1,6 +1,6 @@
-import * as express from "express"
+import express from "express"
 import * as bodyParser from "body-parser"
-import * as session from "express-session"
+import session from "express-session"
 import mongoose, { ConnectOptions } from "mongoose"
 import morgan from "morgan"
 

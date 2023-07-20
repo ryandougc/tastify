@@ -74,7 +74,6 @@ export const deleteComparison = async (user1: string, user2: string): Promise<bo
 }
 
 export const getComparison = async (user1: string, user2: string): Promise<Comparison> => {
-    console.log("Not MOcked")
     try {
         const result: Comparison = await db.getComparison(user1, user2)
 

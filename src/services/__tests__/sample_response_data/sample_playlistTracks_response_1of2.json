@@ -1,0 +1,23 @@
+{
+    "next": "https://api.spotify.com/v1/playlists/41sIXy3jbeVjWwxglpMsDi/tracks?offset=1&limit=1&fields=id,%20next,%20offset,%20total,%20items.track.name,%20items.track.id,%20items.track.artists.id,%20items.track.artists.name,%20items.track.artists.href,%20items.track.href,%20items.track.popularity,%20items.track.type&market=CA&locale=en-US,en;q=0.5",
+    "offset": 0,
+    "total": 2,
+    "items": [
+        {
+            "track": {
+                "artists": [
+                    {
+                        "href": "https://api.spotify.com/v1/artists/1nJX9DZHvd27lKDx8NM8Rt",
+                        "id": "1nJX9DZHvd27lKDx8NM8Rt",
+                        "name": "Nix Northwest"
+                    }
+                ],
+                "href": "https://api.spotify.com/v1/tracks/5FyUzG6elDlMkj2TIzvjhe",
+                "id": "5FyUzG6elDlMkj2TIzvjhe",
+                "name": "One Way Ticket",
+                "popularity": 34,
+                "type": "track"
+            }
+        }
+    ]
+}

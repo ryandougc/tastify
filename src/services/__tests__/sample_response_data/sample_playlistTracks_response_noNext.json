@@ -1,0 +1,55 @@
+{
+    "next": null,
+    "offset": 0,
+    "total": 3,
+    "items": [
+        {
+            "track": {
+                "artists": [
+                    {
+                        "href": "https://api.spotify.com/v1/artists/1nJX9DZHvd27lKDx8NM8Rt",
+                        "id": "1nJX9DZHvd27lKDx8NM8Rt",
+                        "name": "Nix Northwest"
+                    }
+                ],
+                "href": "https://api.spotify.com/v1/tracks/5FyUzG6elDlMkj2TIzvjhe",
+                "id": "5FyUzG6elDlMkj2TIzvjhe",
+                "name": "One Way Ticket",
+                "popularity": 34,
+                "type": "track"
+            }
+        },
+        {
+            "track": {
+                "artists": [
+                    {
+                        "href": "https://api.spotify.com/v1/artists/1rHOtdmGNr5vcYNw5v7QGC",
+                        "id": "1rHOtdmGNr5vcYNw5v7QGC",
+                        "name": "Kenny Beats"
+                    }
+                ],
+                "href": "https://api.spotify.com/v1/tracks/1rOKAsJZJDIikOKDeUfPRV",
+                "id": "1rOKAsJZJDIikOKDeUfPRV",
+                "name": "Last Words",
+                "popularity": 65,
+                "type": "track"
+            }
+        },
+        {
+            "track": {
+                "artists": [
+                    {
+                        "href": "https://api.spotify.com/v1/artists/1nJX9DZHvd27lKDx8NM8Rt",
+                        "id": "1nJX9DZHvd27lKDx8NM8Rt",
+                        "name": "Nix Northwest"
+                    }
+                ],
+                "href": "https://api.spotify.com/v1/tracks/7hg3zgEd0ZpTMJXHD7MBii",
+                "id": "7hg3zgEd0ZpTMJXHD7MBii",
+                "name": "See U In The Morning",
+                "popularity": 51,
+                "type": "track"
+            }
+        }
+    ]
+}

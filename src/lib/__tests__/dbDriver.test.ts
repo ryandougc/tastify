@@ -73,10 +73,10 @@ describe('Database Driver', () => {
             await createUserProfile(newProfile1)
 
             const result = async () => {
-                await createUserProfile(newProfile2)
+                return await createUserProfile(newProfile2)
             }
 
-            expect(result).rejects.toThrow()
+            expect(result()).rejects.toThrow()
         })
     })
     describe('getUserProfile()', () => {
@@ -97,26 +97,34 @@ describe('Database Driver', () => {
     describe('updateUserProfile()', () => {
         let globaldummyProfile
 
-        const newAnalysis = new Analysis([
-            new Genre(
-                'dummy-genre',
-                1,
-                [ new Track(
-                        [{ name: "test-artist-name", id: '1' }],
-                        "https//dummy.com",
-                        "193",
-                        "dummy-track",
-                        "track"
-                )],
-                [ new Artist(
-                        ['test-genre'],
-                        "https://test-href",
-                        "194",
-                        "test-artist",
-                        0.94
-                )]
-            )
-        ])
+        const testGenre = new Genre(
+            'dummy-genre',
+            1,
+            [ new Track(
+                    [ new Artist(
+                        [],
+                        "test-artist-href",
+                        "test-artist-id",
+                        "test-artist-name"
+                    )],
+                    "https//dummy.com",
+                    "193",
+                    "dummy-track",
+                    "track"
+            )],
+            [ new Artist(
+                    ['test-genre'],
+                    "https://test-href",
+                    "194",
+                    "test-artist",
+                    0.94
+            )]
+        )
+
+        const testGenresMap = new Map()
+        testGenresMap.set(testGenre.name, testGenre)
+
+        const newAnalysis = new Analysis(testGenresMap)
 
         beforeEach(async () => {
             const dummyProfile = new Profile('dummy-name')
@@ -137,13 +145,15 @@ describe('Database Driver', () => {
         it('should update the profile database entry and check the new data is present', async () => {
             const updatedProfile = globaldummyProfile 
 
+            const foundProfileBeforeUpdate = await getUserProfile(updatedProfile.profileId)
+
             updatedProfile.analysis = newAnalysis
 
             await updateUserProfile(updatedProfile)
 
             const foundUpdatedProfile = await getUserProfile(updatedProfile.profileId)
 
-            expect(foundUpdatedProfile.analysis.genres[0].name).toEqual('dummy-genre')
+            expect(foundUpdatedProfile.analysis.genres[0]['dummy-genre'].name).toEqual('dummy-genre')
         })
     })
     describe('deleteUserProfile()', () => {

@@ -34,14 +34,14 @@ export const MongoComparison = mongoose.model<Comparison>('Comparison', comparis
 // Add all the functions to act on the schema
 export const createUserProfile = async (userProfile: Profile): Promise<boolean> => {
     try {
-        console.log({userProfile})
-
-        await MongoProfile.create({ 
+        const result = await MongoProfile.create({ 
             profileId: userProfile.profileId,  
             spotifyUsername: userProfile.spotifyUsername,
             dateCreated: userProfile.dateCreated,
             analysis: userProfile.analysis
         })
+
+        console.log(result)
 
         return true
     } catch(error) {
@@ -96,8 +96,6 @@ export const updateUserProfile = async (userProfile: Profile): Promise<boolean> 
 export const deleteUserProfile = async (profileId: string): Promise<boolean> => {
     try {
         const deletedProfile = await MongoProfile.deleteOne({ profileId: profileId })
-
-        console.log(deletedProfile.deletedCount)
 
         if(deletedProfile.deletedCount <= 0) throw Error("Invalid profile ID")
 

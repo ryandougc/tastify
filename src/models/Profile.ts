@@ -1,6 +1,12 @@
 import { generateUserId } from '../lib/utils';
 
+import { Top50 } from '../lib/types'
+
 import { Analysis } from './Analysis'
+import { Comparison } from './Comparison';
+import { Track } from './Track';
+import { Artist } from './Artist';
+
 import {
     createUserProfile,
     getUserProfile, 
@@ -10,9 +16,7 @@ import {
     getUsersComparisons,
     deleteAllUsersComparisons
   } from '../lib/dbDriver'
-import { getTop50TracksService } from '../services/getTop50Tracks';
-import { Comparison } from './Comparison';
-import { Track } from './Track';
+import { getTop50Service } from '../services/getTop50';
 
 export interface Profile {
     profileId: string;
@@ -62,7 +66,7 @@ export class Profile implements Profile {
 
     async generateAnalysis(): Promise<void> {
         try {
-            const newAnalysis = await this.analysis.generateAnalysis(this.profileId)
+            const newAnalysis: Analysis = await this.analysis.generateAnalysis(this.profileId)
 
             this.analysis = newAnalysis
         } catch(error) {
@@ -70,15 +74,9 @@ export class Profile implements Profile {
         }
     }
 
-    async getTop50(): Promise<{ tracks: Array<Track> }> {
+    async getTop50(): Promise<Top50> {
         try {
-            const top50Tracks = await getTop50TracksService()
-
-            console.log(top50Tracks)
-
-            const top50 = {
-                tracks: top50Tracks
-            }
+            const top50: Top50 = await getTop50Service()
   
             return top50
         } catch(error) {
@@ -99,7 +97,7 @@ export class Profile implements Profile {
     
     static async getUserProfile(profileId: string): Promise<Profile> {
         try {
-            const profile = await getUserProfile(profileId)
+            const profile: Profile = await getUserProfile(profileId)
 
             if(profile === null) throw new Error('Error fetching profile')
 

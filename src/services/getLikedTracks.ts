@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { Track } from '../models/Track'
+import { Artist } from "../models/Artist";
 
 export async function getLikedTracksService(): Promise<Array<Track>> {
     try {
@@ -15,14 +16,24 @@ export async function getLikedTracksService(): Promise<Array<Track>> {
 
             // Remove excess data
             for(let i=0; i < myTracksResponse.items.length; i++) {
-                const track = myTracksResponse.items[i]
+                const track = myTracksResponse.items[i].track
+
+                const trackArtists: Array<Artist> = track.artists.map(artist => {
+                    return new Artist(
+                        [],
+                        artist.href,
+                        artist.id,
+                        artist.name
+                    )
+                })
 
                 const trackPlaceholder: Track = {
-                    artists: track.artists,
+                    artists: trackArtists,
                     href: track.href,
                     id: track.id,
                     name: track.name,
-                    type: track.type
+                    type: track.type,
+                    genres: []
                 }
 
                 tracklist.push(trackPlaceholder)
@@ -38,9 +49,8 @@ export async function getLikedTracksService(): Promise<Array<Track>> {
 
         // Return master array of all liked tracks
         return tracklist
-    } catch(err) {
-        console.log("Error while getting liked tracks")
-
-        return []
+    } catch(error) {
+        console.log(error)
+        throw new Error("Error while getting user's liked tracks")
     }
 }

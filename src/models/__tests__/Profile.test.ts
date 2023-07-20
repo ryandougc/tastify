@@ -17,7 +17,9 @@ import { Analysis } from '../Analysis'
 import { Genre } from '../Genre'
 import { Comparison } from '../Comparison'
 import { Track } from '../Track'
-import { getTop50TracksService } from '../../services/getTop50Tracks'
+import { getTop50Service } from '../../services/getTop50'
+import { Artist } from '../Artist'
+import { Top50 } from '../../lib/types'
 
 jest.mock('../../lib/utils', () => {
     return {
@@ -46,10 +48,9 @@ jest.mock('../../lib/dbDriver', () => {
     }
 })
 jest.mock('../../models/Comparison')
-// jest.mock('../../models/Track') // Can we figure out how to mock this out?
-jest.mock('../../services/getTop50Tracks', () => {
+jest.mock('../../services/getTop50', () => {
     return {
-        getTop50TracksService: jest.fn(),
+        getTop50Service: jest.fn(),
     }
 })
 
@@ -135,20 +136,24 @@ describe('class Profile', () => {
         it('should generate an analysis and assign it to the analysis property of the profile provided', async () => {
             const testProfile = new Profile('testProfile')
             const testGenre = new Genre("Country", 1, [], [])
+            const testGenreMap = new Map()
+            testGenreMap.set(testGenre.name, testGenre)
 
-            let generateAnalysisSpy = jest.spyOn(testProfile.analysis, 'generateAnalysis').mockResolvedValue(new Analysis([testGenre]))
+            let generateAnalysisSpy = jest.spyOn(testProfile.analysis, 'generateAnalysis').mockResolvedValue(new Analysis(testGenreMap))
 
             await testProfile.generateAnalysis()
 
-            expect(testProfile.analysis.genres.length).toBeGreaterThan(0)
+            expect(testProfile.analysis.genres.size).toBeGreaterThan(0)
 
             generateAnalysisSpy.mockRestore()
         })
         it('should not throw an error when generating a new analysis', () => {
             const testProfile = new Profile('testProfile')
             const testGenre = new Genre("Country", 1, [], [])
+            const testGenreMap = new Map()
+            testGenreMap.set(testGenre.name, testGenre)
 
-            let generateAnalysisSpy = jest.spyOn(testProfile.analysis, 'generateAnalysis').mockResolvedValue(new Analysis([testGenre]))
+            let generateAnalysisSpy = jest.spyOn(testProfile.analysis, 'generateAnalysis').mockResolvedValue(new Analysis(testGenreMap))
 
             const resultFn = async () => {
                 await testProfile.generateAnalysis()
@@ -215,17 +220,25 @@ describe('class Profile', () => {
     })
     describe('method getTop50', () => {
         it('should return an array of Track class instance', async () => {
-            jest.mocked(getTop50TracksService).mockImplementation(async (): Promise<Array<Track>> => {
-                return new Promise<Array<Track>>((resolve, reject) => {
-                    resolve([
-                        new Track(
-                            [{ name: 'fake-artist-name', id: 'fake-artist-id' }],
-                            'fake-track-link',
-                            'fake-track-id',
-                            'fake-track-name',
-                            'track'
-                        )
-                    ])
+            jest.mocked(getTop50Service).mockImplementation(async (): Promise<Top50> => {
+                return new Promise<Top50>((resolve, reject) => {
+                    resolve({
+                        tracks: [
+                            new Track(
+                                [new Artist(
+                                    [],
+                                    'fake-artist-href',
+                                    'fake-artist-id',
+                                    'fake-artist-name'
+                                )],
+                                'fake-track-link',
+                                'fake-track-id',
+                                'fake-track-name',
+                                'track'
+                            )
+                        ],
+                        artists: []
+                    })
                 })
             })
 

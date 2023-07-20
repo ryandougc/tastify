@@ -1,7 +1,8 @@
 import axios from "axios";
 import * as fs from "fs";
 import mongoose from "mongoose";
-import { Track, TrackEntry } from "../models/Track";
+import { Track } from "../models/Track";
+import { TrackEntry } from './types'
 import { v4 as uuidv4 } from 'uuid';
 
 export function generateRandomString(length: number): string {

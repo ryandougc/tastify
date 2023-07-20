@@ -6,7 +6,9 @@
         "outDir": "dist",
         "sourceMap": true,
         "types": ["jest"], //add "supertest" once supertest is needed
-        "typeRoots": ["./types", "./node_modules/@types"]
+        "typeRoots": ["./types", "./node_modules/@types"],
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
     },
     "include": ["src/**/*.ts", "tests/**/*.test.ts"],
     "exclude": ["node_modules", "tests", "src/services/**.*"]

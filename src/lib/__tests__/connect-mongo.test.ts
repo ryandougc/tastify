@@ -45,41 +45,6 @@ describe('Mongo Database Functions', () => {
         }
     });
 
-
-    describe('MongoProfile Model', () => {
-        it('should return a profile object with the corresponding data', () => {
-            const dummyProfile = new Profile('dummy')
-
-            const dummyMongoProfile = new MongoProfile({
-                spotifyUsername: dummyProfile.spotifyUsername,
-                profileId: dummyProfile.profileId,
-                dateCreated: dummyProfile.dateCreated,
-                analysis: dummyProfile.analysis
-            })
-
-            expect(dummyMongoProfile.spotifyUsername).toEqual(dummyProfile.spotifyUsername)
-            expect(dummyMongoProfile.profileId).toEqual(dummyProfile.profileId)
-            expect(dummyMongoProfile.dateCreated).toEqual(dummyProfile.dateCreated)
-            expect(dummyMongoProfile.analysis).toEqual(dummyProfile.analysis)
-        })
-    })
-    describe('MongoComparison Model', () => {
-        it('should return a profile object with the corresponding data', () => {
-            const dummyProfile1 = new Profile('dummy1')
-            const dummyProfile2 = new Profile('dummy2')
-            const dummyComparison = new Comparison(dummyProfile1.profileId, dummyProfile2.profileId)
-
-            const dummyMongoComparison = new MongoComparison({
-                user1: dummyComparison.user1,
-                user2: dummyComparison.user2,
-                dateCreated: dummyComparison.dateCreated
-            })
-
-            expect(dummyMongoComparison.user1).toEqual(dummyComparison.user1)
-            expect(dummyMongoComparison.user2).toEqual(dummyComparison.user2)
-            expect(dummyMongoComparison.dateCreated).toEqual(dummyComparison.dateCreated)
-        })
-    })
     describe('createUserProfile()', () => {
         it('should not throw if a valid Profile is provided and the database is connected', async () => {
             const newUser = new Profile('username')
@@ -354,8 +319,6 @@ describe('Mongo Database Functions', () => {
             const result = async () => {
                 await deleteComparison(globalDummyComparison.user1, globalDummyComparison.user2)
             }
-
-            console.log(Promise.resolve(result))
 
             expect(result).rejects.toThrow()
         })

@@ -1,0 +1,46 @@
+{
+    "href": "https://api.spotify.com/v1/users/whitekidfromtheblock/playlists?offset=0&limit=1",
+    "limit": 1,
+    "next": "https://api.spotify.com/v1/users/whitekidfromtheblock/playlists?offset=1&limit=1",
+    "offset": 0,
+    "previous": null,
+    "total": 2,
+    "items": [
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/41sIXy3jbeVjWwxglpMsDi"
+            },
+            "href": "https://api.spotify.com/v1/playlists/41sIXy3jbeVjWwxglpMsDi",
+            "id": "41sIXy3jbeVjWwxglpMsDi",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab67616d0000b2733108a70c839fbd758b570fd7",
+                    "height": 640,
+                    "width": 640
+                }
+            ],
+            "name": "One Way Ticket",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "NCxiNmQyNzU0ODg2YWQzMTM0ODVjY2FlNWYyY2Q1MTMxNDViZThlYjk4",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/41sIXy3jbeVjWwxglpMsDi/tracks",
+                "total": 3
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:41sIXy3jbeVjWwxglpMsDi",
+            "primary_color": null
+        }
+    ]
+}

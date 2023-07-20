@@ -1,0 +1,48 @@
+{
+    "href": "https://api.spotify.com/v1/me/top/artists?limit=1&offset=0",
+    "limit": 1,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 1,
+    "items": [
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60"
+            },
+            "followers": {
+                "href": null,
+                "total": 0
+            },
+            "genres": [
+                "dfw rap",
+                "melodic rap",
+                "pop",
+                "rap"
+            ],
+            "href": "https://api.spotify.com/v1/artists/246dkjvS1zLTtiykXe5h60",
+            "id": "246dkjvS1zLTtiykXe5h60",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb6be070445b03e0b63147c2c1",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab676161000051746be070445b03e0b63147c2c1",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f1786be070445b03e0b63147c2c1",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Post Malone",
+            "popularity": 88,
+            "type": "artist",
+            "uri": "spotify:artist:246dkjvS1zLTtiykXe5h60"
+        }
+    ]
+}

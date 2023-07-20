@@ -1,0 +1,440 @@
+{
+    "href": "https://api.spotify.com/v1/users/whitekidfromtheblock/playlists?offset=0&limit=10",
+    "limit": 10,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 10,
+    "items": [
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/41sIXy3jbeVjWwxglpMsDi"
+            },
+            "href": "https://api.spotify.com/v1/playlists/41sIXy3jbeVjWwxglpMsDi",
+            "id": "41sIXy3jbeVjWwxglpMsDi",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab67616d0000b2733108a70c839fbd758b570fd7",
+                    "height": 640,
+                    "width": 640
+                }
+            ],
+            "name": "One Way Ticket",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "NCxiNmQyNzU0ODg2YWQzMTM0ODVjY2FlNWYyY2Q1MTMxNDViZThlYjk4",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/41sIXy3jbeVjWwxglpMsDi/tracks",
+                "total": 3
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:41sIXy3jbeVjWwxglpMsDi",
+            "primary_color": null
+        },
+        {
+            "collaborative": false,
+            "description": "Fuck Summer I love it",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/7oibm62uANzc5CliEBdcMr"
+            },
+            "href": "https://api.spotify.com/v1/playlists/7oibm62uANzc5CliEBdcMr",
+            "id": "7oibm62uANzc5CliEBdcMr",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab67706c0000bebbd6a780d635efeefd818e6cef",
+                    "height": null,
+                    "width": null
+                }
+            ],
+            "name": "Double Edged Sword",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "MTMsNTU4YTY1OTMzNmE2ZGEzM2VmOTdjZTM1YjE2NmY0ZTNjZjYzMGNjNQ==",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/7oibm62uANzc5CliEBdcMr/tracks",
+                "total": 7
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:7oibm62uANzc5CliEBdcMr",
+            "primary_color": null
+        },
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/5FqeRAMMCZNffWOip6bw6p"
+            },
+            "href": "https://api.spotify.com/v1/playlists/5FqeRAMMCZNffWOip6bw6p",
+            "id": "5FqeRAMMCZNffWOip6bw6p",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab67616d0000b273fa45fcdbdbd9bd5742d1a8a8",
+                    "height": 640,
+                    "width": 640
+                }
+            ],
+            "name": "9/11 Hasn't Happened",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "NSwxMzUyMTg2NmM5NzM1ODRmNGMzODM3YjdmOGI2NmE3OGU1NWU5OTBh",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/5FqeRAMMCZNffWOip6bw6p/tracks",
+                "total": 3
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:5FqeRAMMCZNffWOip6bw6p",
+            "primary_color": null
+        },
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/74TAxZ0URTMUznSUzplzef"
+            },
+            "href": "https://api.spotify.com/v1/playlists/74TAxZ0URTMUznSUzplzef",
+            "id": "74TAxZ0URTMUznSUzplzef",
+            "images": [
+                {
+                    "url": "https://mosaic.scdn.co/640/ab67616d0000b2734a00dec9ce1677ff4fbfeb91ab67616d0000b2734aa85ed00d8b32fd901da413ab67616d0000b2736081278cb62df2757d55633bab67616d0000b273d3004c7f9c57d391bbdb0850",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://mosaic.scdn.co/300/ab67616d0000b2734a00dec9ce1677ff4fbfeb91ab67616d0000b2734aa85ed00d8b32fd901da413ab67616d0000b2736081278cb62df2757d55633bab67616d0000b273d3004c7f9c57d391bbdb0850",
+                    "height": 300,
+                    "width": 300
+                },
+                {
+                    "url": "https://mosaic.scdn.co/60/ab67616d0000b2734a00dec9ce1677ff4fbfeb91ab67616d0000b2734aa85ed00d8b32fd901da413ab67616d0000b2736081278cb62df2757d55633bab67616d0000b273d3004c7f9c57d391bbdb0850",
+                    "height": 60,
+                    "width": 60
+                }
+            ],
+            "name": "Wubalubadubdub",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": true,
+            "snapshot_id": "OSwzZTg0OWJkMDEyZjhiNGIzYThhMjhjMmY0YmNiNjkzMTgzNzAyMTRh",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/74TAxZ0URTMUznSUzplzef/tracks",
+                "total": 6
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:74TAxZ0URTMUznSUzplzef",
+            "primary_color": null
+        },
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/43qbv1VHc5c73tJdS1PHNP"
+            },
+            "href": "https://api.spotify.com/v1/playlists/43qbv1VHc5c73tJdS1PHNP",
+            "id": "43qbv1VHc5c73tJdS1PHNP",
+            "images": [
+                {
+                    "url": "https://mosaic.scdn.co/640/ab67616d0000b273a63c57fc57e3f2151cf9099dab67616d0000b273ae94626dc9e551e18b94ce73ab67616d0000b273bb7a5690800769bfbab14e1bab67616d0000b273e3685463e9a139c239030e31",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://mosaic.scdn.co/300/ab67616d0000b273a63c57fc57e3f2151cf9099dab67616d0000b273ae94626dc9e551e18b94ce73ab67616d0000b273bb7a5690800769bfbab14e1bab67616d0000b273e3685463e9a139c239030e31",
+                    "height": 300,
+                    "width": 300
+                },
+                {
+                    "url": "https://mosaic.scdn.co/60/ab67616d0000b273a63c57fc57e3f2151cf9099dab67616d0000b273ae94626dc9e551e18b94ce73ab67616d0000b273bb7a5690800769bfbab14e1bab67616d0000b273e3685463e9a139c239030e31",
+                    "height": 60,
+                    "width": 60
+                }
+            ],
+            "name": "Chills",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "MzYsNDIzMjIxZGU1ZDNkYThmYzk4OWFkNjM3OWY5NmU1YTkzY2IxYzg5Mg==",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/43qbv1VHc5c73tJdS1PHNP/tracks",
+                "total": 33
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:43qbv1VHc5c73tJdS1PHNP",
+            "primary_color": null
+        },
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/2Of4dFKQIcalmtbG3Pgqb9"
+            },
+            "href": "https://api.spotify.com/v1/playlists/2Of4dFKQIcalmtbG3Pgqb9",
+            "id": "2Of4dFKQIcalmtbG3Pgqb9",
+            "images": [
+                {
+                    "url": "https://mosaic.scdn.co/640/ab67616d0000b2733674c79e2e79c22914494311ab67616d0000b2733f4c7d3871f32d1a77c27c86ab67616d0000b27347713ca75753df9b90df3ebaab67616d0000b27388d8e7762e82ed404b2b45b5",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://mosaic.scdn.co/300/ab67616d0000b2733674c79e2e79c22914494311ab67616d0000b2733f4c7d3871f32d1a77c27c86ab67616d0000b27347713ca75753df9b90df3ebaab67616d0000b27388d8e7762e82ed404b2b45b5",
+                    "height": 300,
+                    "width": 300
+                },
+                {
+                    "url": "https://mosaic.scdn.co/60/ab67616d0000b2733674c79e2e79c22914494311ab67616d0000b2733f4c7d3871f32d1a77c27c86ab67616d0000b27347713ca75753df9b90df3ebaab67616d0000b27388d8e7762e82ed404b2b45b5",
+                    "height": 60,
+                    "width": 60
+                }
+            ],
+            "name": "Chilltfout",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": true,
+            "snapshot_id": "MzMsZGIzMGZiNDhmNzY4MmU4ZWM4Y2ExZjA2NmRkMGEwZjc1ZTFiYzMzYg==",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/2Of4dFKQIcalmtbG3Pgqb9/tracks",
+                "total": 23
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:2Of4dFKQIcalmtbG3Pgqb9",
+            "primary_color": null
+        },
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/13nuwBkX80eaD12CtJGRZB"
+            },
+            "href": "https://api.spotify.com/v1/playlists/13nuwBkX80eaD12CtJGRZB",
+            "id": "13nuwBkX80eaD12CtJGRZB",
+            "images": [
+                {
+                    "url": "https://mosaic.scdn.co/640/ab67616d0000b2732c9a82989cbb3deb021a7297ab67616d0000b273590aab661dbd0f2df2707188ab67616d0000b273ab4a5e424b1c138351af1540ab67616d0000b273d0f4623ef3d9996653b1fbeb",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://mosaic.scdn.co/300/ab67616d0000b2732c9a82989cbb3deb021a7297ab67616d0000b273590aab661dbd0f2df2707188ab67616d0000b273ab4a5e424b1c138351af1540ab67616d0000b273d0f4623ef3d9996653b1fbeb",
+                    "height": 300,
+                    "width": 300
+                },
+                {
+                    "url": "https://mosaic.scdn.co/60/ab67616d0000b2732c9a82989cbb3deb021a7297ab67616d0000b273590aab661dbd0f2df2707188ab67616d0000b273ab4a5e424b1c138351af1540ab67616d0000b273d0f4623ef3d9996653b1fbeb",
+                    "height": 60,
+                    "width": 60
+                }
+            ],
+            "name": "EDM",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "MTUxLDg1Njc5MWQ5Zjc1OTUxNDExMWE3M2NjOTNlYzAyM2ZjYjg1MjVkODg=",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/13nuwBkX80eaD12CtJGRZB/tracks",
+                "total": 110
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:13nuwBkX80eaD12CtJGRZB",
+            "primary_color": null
+        },
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/6QXVctr94GQ1RrDDLKWGKl"
+            },
+            "href": "https://api.spotify.com/v1/playlists/6QXVctr94GQ1RrDDLKWGKl",
+            "id": "6QXVctr94GQ1RrDDLKWGKl",
+            "images": [
+                {
+                    "url": "https://mosaic.scdn.co/640/ab67616d0000b27334bf61aaf8cba5f27755423dab67616d0000b273599aa3e6398f142216276f47ab67616d0000b2737cc94e776ebb63dd08c8422cab67616d0000b273b70fbbe7948314389e61f10d",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://mosaic.scdn.co/300/ab67616d0000b27334bf61aaf8cba5f27755423dab67616d0000b273599aa3e6398f142216276f47ab67616d0000b2737cc94e776ebb63dd08c8422cab67616d0000b273b70fbbe7948314389e61f10d",
+                    "height": 300,
+                    "width": 300
+                },
+                {
+                    "url": "https://mosaic.scdn.co/60/ab67616d0000b27334bf61aaf8cba5f27755423dab67616d0000b273599aa3e6398f142216276f47ab67616d0000b2737cc94e776ebb63dd08c8422cab67616d0000b273b70fbbe7948314389e61f10d",
+                    "height": 60,
+                    "width": 60
+                }
+            ],
+            "name": "Electronic",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "MTMyLDZkOWMyMTFjMjMxYmFiODFhZjEzMzM3YWRjZWQ1OWYyODE1YTc2OGI=",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/6QXVctr94GQ1RrDDLKWGKl/tracks",
+                "total": 121
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:6QXVctr94GQ1RrDDLKWGKl",
+            "primary_color": null
+        },
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/0aWeZ9NDK9RcIpkRdzdBeK"
+            },
+            "href": "https://api.spotify.com/v1/playlists/0aWeZ9NDK9RcIpkRdzdBeK",
+            "id": "0aWeZ9NDK9RcIpkRdzdBeK",
+            "images": [
+                {
+                    "url": "https://mosaic.scdn.co/640/ab67616d0000b2738b1ea10ca54961e5e5d94244ab67616d0000b273945696d01c650eeade335ac9ab67616d0000b273ee0d0dce888c6c8a70db6e8bab67616d0000b273f34338e9270f9c0561cf4c7e",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://mosaic.scdn.co/300/ab67616d0000b2738b1ea10ca54961e5e5d94244ab67616d0000b273945696d01c650eeade335ac9ab67616d0000b273ee0d0dce888c6c8a70db6e8bab67616d0000b273f34338e9270f9c0561cf4c7e",
+                    "height": 300,
+                    "width": 300
+                },
+                {
+                    "url": "https://mosaic.scdn.co/60/ab67616d0000b2738b1ea10ca54961e5e5d94244ab67616d0000b273945696d01c650eeade335ac9ab67616d0000b273ee0d0dce888c6c8a70db6e8bab67616d0000b273f34338e9270f9c0561cf4c7e",
+                    "height": 60,
+                    "width": 60
+                }
+            ],
+            "name": "Synth it up",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "MTgsNjk3Nzc4OTMwYjg2ZTBmOTU0OTA1YTNhYjhiOTlmYmQwMWJhMzQ1OQ==",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/0aWeZ9NDK9RcIpkRdzdBeK/tracks",
+                "total": 12
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:0aWeZ9NDK9RcIpkRdzdBeK",
+            "primary_color": null
+        },
+        {
+            "collaborative": false,
+            "description": "",
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/1zYUxPWzuTwJvNc9bF3Bax"
+            },
+            "href": "https://api.spotify.com/v1/playlists/1zYUxPWzuTwJvNc9bF3Bax",
+            "id": "1zYUxPWzuTwJvNc9bF3Bax",
+            "images": [
+                {
+                    "url": "https://mosaic.scdn.co/640/ab67616d0000b2737a4ffc6739a18161ddf02826ab67616d0000b273b8f6c9c3a6b4e589ad2ca1e9ab67616d0000b273d187000a5770a9179f8d99c5ab67616d0000b273e26790c9ef8dfc04a48d1cdb",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://mosaic.scdn.co/300/ab67616d0000b2737a4ffc6739a18161ddf02826ab67616d0000b273b8f6c9c3a6b4e589ad2ca1e9ab67616d0000b273d187000a5770a9179f8d99c5ab67616d0000b273e26790c9ef8dfc04a48d1cdb",
+                    "height": 300,
+                    "width": 300
+                },
+                {
+                    "url": "https://mosaic.scdn.co/60/ab67616d0000b2737a4ffc6739a18161ddf02826ab67616d0000b273b8f6c9c3a6b4e589ad2ca1e9ab67616d0000b273d187000a5770a9179f8d99c5ab67616d0000b273e26790c9ef8dfc04a48d1cdb",
+                    "height": 60,
+                    "width": 60
+                }
+            ],
+            "name": "Trance",
+            "owner": {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/whitekidfromtheblock"
+                },
+                "href": "https://api.spotify.com/v1/users/whitekidfromtheblock",
+                "id": "whitekidfromtheblock",
+                "type": "user",
+                "uri": "spotify:user:whitekidfromtheblock",
+                "display_name": "whitekidfromtheblock"
+            },
+            "public": false,
+            "snapshot_id": "MjMsMzU3NmU0NjlkN2E3OGJlYWVlZGUyM2U4MDM1YWM3ZjY1MTFiMTZmZg==",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/1zYUxPWzuTwJvNc9bF3Bax/tracks",
+                "total": 14
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:1zYUxPWzuTwJvNc9bF3Bax",
+            "primary_color": null
+        }
+    ]
+}

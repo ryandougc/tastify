@@ -1,9 +1,6 @@
-import * as path from "path";
-import * as dotenv from "dotenv";
+import 'dotenv/config'
 
 import App from "./lib/app";
-
-dotenv.config({ path: path.join(__dirname, "../../.env") });
 
 const app = new App().express;
 const port = process.env.PORT || 4000;

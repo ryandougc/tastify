@@ -8,7 +8,7 @@ export const login = (req, res, next) => {
 
     const scope = "user-library-read user-top-read";
 
-    res.redirect(
+    res.status(200).send(
         "https://accounts.spotify.com/authorize?" +
             queryString.stringify({
                 response_type: "code",
@@ -58,8 +58,7 @@ export const callback = async (req, res, next) => {
                 responseType: "json",
             });
 
-            req.session.access_token = response.data.access_token;
-            req.session.refresh_token = response.data.refresh_token;
+            // Save the access token and refresh token in the session
 
             const userData = await axios({
                 method: "GET",
@@ -70,9 +69,11 @@ export const callback = async (req, res, next) => {
                 responseType: "json",
             });
 
-            req.session.userId = userData.data.id;
-
-            res.send(response.data);
+            res.status(200).send({
+                accessnToken: response.data.access_token,
+                refreshToken: response.data.refresh_token,
+                profileId: userData.data.id
+            });
         } catch (err) {
             console.log(err);
 
@@ -87,10 +88,12 @@ export const callback = async (req, res, next) => {
 
 export const refreshToken = async (req, res, next) => {
     try {
+        const refreshToken = req.headers("refreshToken")
+
         let bodyFormData = new URLSearchParams();
 
         bodyFormData.append("grant_type", "refresh_token");
-        bodyFormData.append("refresh_token", req.session.refresh_token);
+        bodyFormData.append("refresh_token", refreshToken);
 
         const response = await axios({
             method: "POST",

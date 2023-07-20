@@ -1,0 +1,372 @@
+{
+    "artists": [
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/1nJX9DZHvd27lKDx8NM8Rt"
+            },
+            "followers": {
+                "href": null,
+                "total": 23573
+            },
+            "genres": [
+                "uk alternative hip hop"
+            ],
+            "href": "https://api.spotify.com/v1/artists/1nJX9DZHvd27lKDx8NM8Rt",
+            "id": "1nJX9DZHvd27lKDx8NM8Rt",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb1071178220aa121652981240",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab676161000051741071178220aa121652981240",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f1781071178220aa121652981240",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Nix Northwest",
+            "popularity": 43,
+            "type": "artist",
+            "uri": "spotify:artist:1nJX9DZHvd27lKDx8NM8Rt"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/1rHOtdmGNr5vcYNw5v7QGC"
+            },
+            "followers": {
+                "href": null,
+                "total": 177877
+            },
+            "genres": [
+                "indie hip hop",
+                "trap",
+                "underground hip hop"
+            ],
+            "href": "https://api.spotify.com/v1/artists/1rHOtdmGNr5vcYNw5v7QGC",
+            "id": "1rHOtdmGNr5vcYNw5v7QGC",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5ebae4a51ded0c9a8b75278f5eb",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab67616100005174ae4a51ded0c9a8b75278f5eb",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f178ae4a51ded0c9a8b75278f5eb",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Kenny Beats",
+            "popularity": 61,
+            "type": "artist",
+            "uri": "spotify:artist:1rHOtdmGNr5vcYNw5v7QGC"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/0wyMPXGfOuQzNR54ujR9Ix"
+            },
+            "followers": {
+                "href": null,
+                "total": 483679
+            },
+            "genres": [
+                "indie folk",
+                "stomp and holler"
+            ],
+            "href": "https://api.spotify.com/v1/artists/0wyMPXGfOuQzNR54ujR9Ix",
+            "id": "0wyMPXGfOuQzNR54ujR9Ix",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb14a8f509151ea8cbba5c75d5",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000517414a8f509151ea8cbba5c75d5",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f17814a8f509151ea8cbba5c75d5",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Caamp",
+            "popularity": 67,
+            "type": "artist",
+            "uri": "spotify:artist:0wyMPXGfOuQzNR54ujR9Ix"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/2SrSdSvpminqmStGELCSNd"
+            },
+            "followers": {
+                "href": null,
+                "total": 2801428
+            },
+            "genres": [
+                "grime",
+                "uk hip hop"
+            ],
+            "href": "https://api.spotify.com/v1/artists/2SrSdSvpminqmStGELCSNd",
+            "id": "2SrSdSvpminqmStGELCSNd",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb674d29e07df021a35df3ddf1",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab67616100005174674d29e07df021a35df3ddf1",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f178674d29e07df021a35df3ddf1",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Stormzy",
+            "popularity": 70,
+            "type": "artist",
+            "uri": "spotify:artist:2SrSdSvpminqmStGELCSNd"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/64Ql0eGtS5olwVo47Km3zt"
+            },
+            "followers": {
+                "href": null,
+                "total": 37409
+            },
+            "genres": [
+                "instrumental post-rock"
+            ],
+            "href": "https://api.spotify.com/v1/artists/64Ql0eGtS5olwVo47Km3zt",
+            "id": "64Ql0eGtS5olwVo47Km3zt",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb9697f30736ec754c42d6ad33",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab676161000051749697f30736ec754c42d6ad33",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f1789697f30736ec754c42d6ad33",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Black Hill",
+            "popularity": 44,
+            "type": "artist",
+            "uri": "spotify:artist:64Ql0eGtS5olwVo47Km3zt"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/5mdTuNl23tON1WlsVbvD18"
+            },
+            "followers": {
+                "href": null,
+                "total": 14989
+            },
+            "genres": [
+                "progressive trance house"
+            ],
+            "href": "https://api.spotify.com/v1/artists/5mdTuNl23tON1WlsVbvD18",
+            "id": "5mdTuNl23tON1WlsVbvD18",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb7931faeeec2484a7c181c74f",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab676161000051747931faeeec2484a7c181c74f",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f1787931faeeec2484a7c181c74f",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Sound Quelle",
+            "popularity": 47,
+            "type": "artist",
+            "uri": "spotify:artist:5mdTuNl23tON1WlsVbvD18"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/1ybAN3utgdoUL1MUCtH4QM"
+            },
+            "followers": {
+                "href": null,
+                "total": 284038
+            },
+            "genres": [
+                "art pop",
+                "chamber pop",
+                "chillwave",
+                "denver indie",
+                "indie pop",
+                "indie rock",
+                "indie surf",
+                "shimmer pop"
+            ],
+            "href": "https://api.spotify.com/v1/artists/1ybAN3utgdoUL1MUCtH4QM",
+            "id": "1ybAN3utgdoUL1MUCtH4QM",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb76d9c0cc8e9bb869a2232d2e",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000517476d9c0cc8e9bb869a2232d2e",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f17876d9c0cc8e9bb869a2232d2e",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Tennis",
+            "popularity": 52,
+            "type": "artist",
+            "uri": "spotify:artist:1ybAN3utgdoUL1MUCtH4QM"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/12fRkVfO2fUsz1QHgDAG3g"
+            },
+            "followers": {
+                "href": null,
+                "total": 255816
+            },
+            "genres": [
+                "chamber pop",
+                "countrygaze",
+                "indie pop",
+                "sydney indie"
+            ],
+            "href": "https://api.spotify.com/v1/artists/12fRkVfO2fUsz1QHgDAG3g",
+            "id": "12fRkVfO2fUsz1QHgDAG3g",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb8ec482c1250cc9d2dfa61c2e",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab676161000051748ec482c1250cc9d2dfa61c2e",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f1788ec482c1250cc9d2dfa61c2e",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Julia Jacklin",
+            "popularity": 53,
+            "type": "artist",
+            "uri": "spotify:artist:12fRkVfO2fUsz1QHgDAG3g"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/6Pim5E5Lm03COsjHj2aEiK"
+            },
+            "followers": {
+                "href": null,
+                "total": 22952
+            },
+            "genres": [
+                "british singer-songwriter",
+                "modern indie folk"
+            ],
+            "href": "https://api.spotify.com/v1/artists/6Pim5E5Lm03COsjHj2aEiK",
+            "id": "6Pim5E5Lm03COsjHj2aEiK",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5ebee2f5ecff5bf9e7b582cd780",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab67616100005174ee2f5ecff5bf9e7b582cd780",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f178ee2f5ecff5bf9e7b582cd780",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Bess Atwell",
+            "popularity": 43,
+            "type": "artist",
+            "uri": "spotify:artist:6Pim5E5Lm03COsjHj2aEiK"
+        },
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3jzXlBF2157k4exx7idecs"
+            },
+            "followers": {
+                "href": null,
+                "total": 101752
+            },
+            "genres": [
+                "canadian americana",
+                "indie folk",
+                "quebec indie",
+                "stomp and flutter"
+            ],
+            "href": "https://api.spotify.com/v1/artists/3jzXlBF2157k4exx7idecs",
+            "id": "3jzXlBF2157k4exx7idecs",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb921c1c6817fb43ad47c9c20f",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab67616100005174921c1c6817fb43ad47c9c20f",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f178921c1c6817fb43ad47c9c20f",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Leif Vollebekk",
+            "popularity": 53,
+            "type": "artist",
+            "uri": "spotify:artist:3jzXlBF2157k4exx7idecs"
+        }
+    ]
+}

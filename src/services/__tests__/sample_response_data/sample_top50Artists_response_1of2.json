@@ -1,0 +1,49 @@
+{
+    "href": "https://api.spotify.com/v1/me/top/artists?limit=1&offset=1",
+    "limit": 1,
+    "next": "https://api.spotify.com/v1/me/top/artists?limit=1&offset=2",
+    "offset": 1,
+    "previous": "https://api.spotify.com/v1/me/top/artists?limit=1&offset=0",
+    "total": 2,
+    "items": [
+        {
+            "external_urls": {
+                "spotify": "https://open.spotify.com/artist/4W3fa7tiXGVXl3KilbACqt"
+            },
+            "followers": {
+                "href": null,
+                "total": 0
+            },
+            "genres": [
+                "argentine ambient",
+                "latin classical",
+                "latin soundtrack",
+                "orchestral soundtrack",
+                "soundtrack"
+            ],
+            "href": "https://api.spotify.com/v1/artists/4W3fa7tiXGVXl3KilbACqt",
+            "id": "4W3fa7tiXGVXl3KilbACqt",
+            "images": [
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000e5eb949bbdd6ac3ae58e69e7f304",
+                    "height": 640,
+                    "width": 640
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab67616100005174949bbdd6ac3ae58e69e7f304",
+                    "height": 320,
+                    "width": 320
+                },
+                {
+                    "url": "https://i.scdn.co/image/ab6761610000f178949bbdd6ac3ae58e69e7f304",
+                    "height": 160,
+                    "width": 160
+                }
+            ],
+            "name": "Gustavo Santaolalla",
+            "popularity": 64,
+            "type": "artist",
+            "uri": "spotify:artist:4W3fa7tiXGVXl3KilbACqt"
+        }
+    ]
+}
