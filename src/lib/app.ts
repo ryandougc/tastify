@@ -29,7 +29,7 @@ export default class App {
         // Connect to the MongoDB database
         try {
             await mongoose.connect('mongodb+srv://ryan:Sportking11!@cluster0.v1mw48k.mongodb.net/?retryWrites=true&w=majority', {
-                dbName: 'testing',
+                dbName: process.env.MONGO_DATABASE_NAME,
                 useNewUrlParser: true,
                 useUnifiedTopology: true
             } as ConnectOptions)

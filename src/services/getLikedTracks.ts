@@ -6,13 +6,14 @@ import { Artist } from "../models/Artist";
 export async function getLikedTracksService(): Promise<Array<Track>> {
     try {
         let tracksRemaining: boolean = true;
-        let likedTracksURL: string = "https://api.spotify.com/v1/me/tracks?offset=0&limit=50";
+        let likedTracksURL: string = "https://api.spotify.com/v1/me/tracks?limit=50&offset=0";
 
         let tracklist: Array<Track> = []
-
         while (tracksRemaining) {
             // Get tracks
-            const { data :myTracksResponse } = await axios.get(likedTracksURL);
+            const { data } = await axios.get(likedTracksURL);
+
+            const myTracksResponse = data
 
             // Remove excess data
             for(let i=0; i < myTracksResponse.items.length; i++) {
@@ -46,7 +47,6 @@ export async function getLikedTracksService(): Promise<Array<Track>> {
                 tracksRemaining = false;
             }
         }
-
         // Return master array of all liked tracks
         return tracklist
     } catch(error) {

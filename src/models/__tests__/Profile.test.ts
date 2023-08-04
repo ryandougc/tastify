@@ -11,6 +11,7 @@ import {
     deleteUserProfile,
     deleteAllUsersComparisons,
     getUsersComparisons,
+    getUserProfileBySpotifyUsername,
 } from '../../lib/dbDriver'
 import { Profile } from '../Profile'
 import { Analysis } from '../Analysis'
@@ -41,10 +42,11 @@ jest.mock('../../lib/dbDriver', () => {
             })
         }),
         checkUserProfileExists: jest.fn(),
-        getUserProfile: jest.fn(),
+        // getUserProfile: jest.fn(),
         deleteAllUsersComparisons: jest.fn(),
         deleteUserProfile: jest.fn(),
         getUsersComparisons: jest.fn(),
+        getUserProfileBySpotifyUsername: jest.fn(),
     }
 })
 jest.mock('../../models/Comparison')
@@ -136,24 +138,25 @@ describe('class Profile', () => {
         it('should generate an analysis and assign it to the analysis property of the profile provided', async () => {
             const testProfile = new Profile('testProfile')
             const testGenre = new Genre("Country", 1, [], [])
-            const testGenreMap = new Map()
-            testGenreMap.set(testGenre.name, testGenre)
+            const testGenreAnalysis = []
+            testGenreAnalysis.push(testGenre)
 
-            let generateAnalysisSpy = jest.spyOn(testProfile.analysis, 'generateAnalysis').mockResolvedValue(new Analysis(testGenreMap))
+            let generateAnalysisSpy = jest.spyOn(testProfile.analysis, 'generateAnalysis').mockResolvedValue(new Analysis(testGenreAnalysis))
 
             await testProfile.generateAnalysis()
 
-            expect(testProfile.analysis.genres.size).toBeGreaterThan(0)
+            console.log(testProfile.analysis)
+
+            expect(testProfile.analysis.genres.length).toBeGreaterThan(0)
 
             generateAnalysisSpy.mockRestore()
         })
         it('should not throw an error when generating a new analysis', () => {
             const testProfile = new Profile('testProfile')
             const testGenre = new Genre("Country", 1, [], [])
-            const testGenreMap = new Map()
-            testGenreMap.set(testGenre.name, testGenre)
+            const testGenreAnalysis = [testGenre]
 
-            let generateAnalysisSpy = jest.spyOn(testProfile.analysis, 'generateAnalysis').mockResolvedValue(new Analysis(testGenreMap))
+            let generateAnalysisSpy = jest.spyOn(testProfile.analysis, 'generateAnalysis').mockResolvedValue(new Analysis(testGenreAnalysis))
 
             const resultFn = async () => {
                 await testProfile.generateAnalysis()
@@ -165,45 +168,45 @@ describe('class Profile', () => {
         })
     })
     describe('method getUserProfile()', () => {
-        it("should throw error when getting a user profile with profileID that doesn't exist", () => {
-            const invalidProfileId = 'invalid'
+        it("should throw error when getting a user profile with a spotifyUsername that doesn't exist", () => {
+            const invalidSpotifyUsername = 'invalidSpotifyUsername'
 
-            jest.mocked(getUserProfile).mockImplementation(async (profileId: string) => {
-                return new Promise((reject, resolve) => { throw new Error("A user doesn't exist with that ID") })
+            jest.mocked(getUserProfileBySpotifyUsername).mockImplementation(async (spotifyUsername: string) => {
+                return new Promise((reject, resolve) => { throw new Error("A user doesn't exist with that spotify username") })
             })
 
             const resultFn = async () => {
-                const profile = await Profile.getUserProfile(invalidProfileId)
+                const profile = await Profile.getUserProfile(invalidSpotifyUsername)
             }
 
-            expect(resultFn).rejects.toThrow('Error fetching profile')
+            expect(resultFn).rejects.toThrow("A user doesn't exist with that spotify username")
         })
         it('should return a users profile mathcing the profileId provided', async () => {
-            jest.mocked(getUserProfile).mockImplementation(async (profileId: string) => {
+            jest.mocked(getUserProfileBySpotifyUsername).mockImplementation(async (spotifyUsername: string) => {
                 return new Promise((resolve, reject) => {
-                    const testProfile = new Profile('testProfile', profileId)
+                    const testProfile = new Profile(spotifyUsername)
 
                     resolve(testProfile)
                 })
             })
 
-            const validProfileId = '1234567890'
+            const validSpotifyUsername: string = "Tastify"
 
-            const resultProfile = await Profile.getUserProfile(validProfileId)
+            const resultProfile = await Profile.getUserProfile(validSpotifyUsername)
 
             expect(resultProfile).toBeInstanceOf(Profile)
-            expect(resultProfile.profileId).toBe(validProfileId)
+            expect(resultProfile.spotifyUsername).toBe(validSpotifyUsername)
         })
     })
     describe('method delete()', () => {
         it("should call deleteAllUsersComparisons and deleteUserProfile when deleting a profile", async () => {
-            jest.mocked(deleteAllUsersComparisons).mockImplementation(async (profile: Profile) => {
+            jest.mocked(deleteAllUsersComparisons).mockImplementation(async (spotifyUsername: string) => {
                 return new Promise((resolve, reject) => {
                     resolve(true)
                 })
             })
 
-            jest.mocked(deleteUserProfile).mockImplementation(async (profile: Profile) => {
+            jest.mocked(deleteUserProfile).mockImplementation(async (spotifyUsername: string) => {
                 return new Promise((resolve, reject) => {
                     resolve(true)
                 })
@@ -213,8 +216,7 @@ describe('class Profile', () => {
 
             await dummyProfile.delete()
 
-
-            expect(deleteAllUsersComparisons).toHaveBeenCalled()
+            expect(deleteAllUsersComparisons).toHaveBeenCalledTimes(0)
             expect(deleteUserProfile).toHaveBeenCalled()
         })
     })

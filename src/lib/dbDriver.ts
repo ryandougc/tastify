@@ -15,7 +15,7 @@ export const createUserProfile = async (userProfile: Profile): Promise<boolean> 
 
 export const getUserProfile = async (profileId: string): Promise<Profile> => {
     try {
-        const profile: Profile = await db.getUserProfile(profileId)
+        const profile: Profile = await db.getUserProfileBySpotifyUsername(profileId)
 
         return profile
     } catch(error) {
@@ -23,9 +23,9 @@ export const getUserProfile = async (profileId: string): Promise<Profile> => {
     }
 }
 
-export const checkUserProfileExists = async (profileId: string): Promise<boolean> => {
+export const checkUserProfileExists = async (spotifyUsername: string): Promise<boolean> => {
     try {
-        const result: boolean = await db.checkUserProfileExists(profileId)
+        const result: boolean = await db.checkUserProfileExists(spotifyUsername)
 
         return result
     } catch(error) {
@@ -43,13 +43,13 @@ export const updateUserProfile = async (userProfile: Profile): Promise<boolean> 
     }
 }
 
-export const deleteUserProfile = async (profile: Profile): Promise<boolean> => {
+export const deleteUserProfile = async (spotifyUsername: string): Promise<boolean> => {
     try {
-        const result: boolean = await db.deleteUserProfile(profile.profileId)
+        const result: boolean = await db.deleteUserProfile(spotifyUsername)
 
         return result
     } catch(error) {
-        throw new Error(`Error when deleting a profile`)
+        throw new Error(error.message)
     }
 }
 
@@ -94,9 +94,9 @@ export const getUsersComparisons = async (profile: Profile): Promise<Array<Compa
     }
 }
 
-export const deleteAllUsersComparisons = async (profile: Profile): Promise<boolean> => {
+export const deleteAllUsersComparisons = async (spotifyusername: string): Promise<boolean> => {
     try {
-        const result: boolean = await db.deleteAllUsersComparisons(profile.profileId)
+        const result: boolean = await db.deleteAllUsersComparisons(spotifyusername)
 
         return true
     } catch(error) {
@@ -111,6 +111,6 @@ export const getUserProfileBySpotifyUsername = async (spotifyUsername: string): 
 
         return profile
     } catch(error) {
-        throw new Error(`Error when fetching user from the database`)
+        throw new Error(error.message)
     }
 }

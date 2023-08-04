@@ -15,7 +15,8 @@ import {
     getComparison,
     getUserProfile,
     updateUserProfile,
-    getUsersComparisons
+    getUsersComparisons,
+    getUserProfileBySpotifyUsername
 } from '../dbDriver'
 import { Genre } from '../../models/Genre';
 import { Track } from '../../models/Track';
@@ -62,7 +63,7 @@ describe('Database Driver', () => {
 
             await createUserProfile(newProfile)
 
-            const foundUser = await getUserProfile(newProfile.profileId)
+            const foundUser = await getUserProfileBySpotifyUsername(newProfile.spotifyUsername)
 
             expect(foundUser.spotifyUsername).toBe('test-name')
         })
@@ -89,7 +90,7 @@ describe('Database Driver', () => {
             await createUserProfile(dummyProfile)
         })
         it('should return the fetched user profile', async () => {
-            const foundUser: Profile = await getUserProfile(globaldummyProfile.profileId)
+            const foundUser: Profile = await getUserProfileBySpotifyUsername(globaldummyProfile.spotifyUsername)
 
             expect(foundUser.spotifyUsername).toBe('dummy-name')
         })
@@ -121,10 +122,9 @@ describe('Database Driver', () => {
             )]
         )
 
-        const testGenresMap = new Map()
-        testGenresMap.set(testGenre.name, testGenre)
+        const testGenresAnalysis = [testGenre]
 
-        const newAnalysis = new Analysis(testGenresMap)
+        const newAnalysis = new Analysis(testGenresAnalysis)
 
         beforeEach(async () => {
             const dummyProfile = new Profile('dummy-name')
@@ -143,17 +143,17 @@ describe('Database Driver', () => {
         })
         
         it('should update the profile database entry and check the new data is present', async () => {
-            const updatedProfile = globaldummyProfile 
+            const updatedProfile: Profile = globaldummyProfile 
 
-            const foundProfileBeforeUpdate = await getUserProfile(updatedProfile.profileId)
+            const foundProfileBeforeUpdate: Profile = await getUserProfileBySpotifyUsername(updatedProfile.spotifyUsername)
 
             updatedProfile.analysis = newAnalysis
 
             await updateUserProfile(updatedProfile)
 
-            const foundUpdatedProfile = await getUserProfile(updatedProfile.profileId)
+            const foundUpdatedProfile: Profile = await getUserProfileBySpotifyUsername(updatedProfile.spotifyUsername)
 
-            expect(foundUpdatedProfile.analysis.genres[0]['dummy-genre'].name).toEqual('dummy-genre')
+            expect(foundUpdatedProfile.analysis.genres[0].name).toEqual('dummy-genre')
         })
     })
     describe('deleteUserProfile()', () => {
@@ -166,7 +166,7 @@ describe('Database Driver', () => {
             await createUserProfile(dummyProfile)
         })
         it('should return true if the profile is deleted', async () => {
-            const result = await deleteUserProfile(globaldummyProfile)
+            const result = await deleteUserProfile(globaldummyProfile.spotifyUsername)
 
             expect(result).toBe(true)
         })  

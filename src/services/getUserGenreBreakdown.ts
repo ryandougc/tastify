@@ -19,41 +19,42 @@ import { Artist } from '../models/Artist'
 import { getLikedTracksService } from './getLikedTracks'
 import { getPlaylistTracksService } from './getPlaylistTracks'
 
-// THIS IS WHERE THE FAKE ACCESS TOKEN IS COMING FROM
-const FAKE_ACCESS_TOKEN = 'THIS IS A FAKE ACCESS TOKEN'
+export async function getUserGenreBreakdownService(): Promise<Array<Genre>> {
+    try {
+        // Get all tracks in arrays
+        let likedTracks: Array<Track> = await getLikedTracksService()
+        let playlistTracks: Array<Track> = await getPlaylistTracksService()
 
-export async function getUserGenreBreakdownService(): Promise<Map<string, Genre>> {
-    axios.defaults.headers.common["Authorization"] = `Bearer ${FAKE_ACCESS_TOKEN}`
-    axios.defaults.responseType = "json";
+        if(likedTracks.length === 0 && playlistTracks.length === 0) throw new Error("This user does not have any liked tracks or playlist tracks")
 
-    // Get all tracks in arrays
-    let likedTracks: Array<Track> = await getLikedTracksService()
-    let playlistTracks: Array<Track> = await getPlaylistTracksService()
+        // Sort the arrays of tracks into a map of all tracks
+        const allTracksMap: Map<string, TrackEntry> = new Map()
 
-    if(likedTracks.length === 0 && playlistTracks.length === 0) throw new Error("This user does not have any liked tracks or playlit tracks")
+        await pushArrayOfTracksToMap(likedTracks, allTracksMap)
 
-    // Sort the arrays of tracks into a map of all tracks
-    const allTracksMap: Map<string, TrackEntry> = new Map()
+        await pushArrayOfTracksToMap(playlistTracks, allTracksMap)
 
-    await pushArrayOfTracksToMap(likedTracks, allTracksMap)
+        // Get map of artists from tracks map
+        const allArtistsMap: Map<string, ArtistEntry> = await getArtistsFromAllTracksMap(allTracksMap)
+        
+        // Pull artist data from Spotify for each unique artist
+        const artistResponseData: Array<ArtistResponse> = await getArtistGenres(allArtistsMap)
 
-    await pushArrayOfTracksToMap(playlistTracks, allTracksMap)
+        // Append artist data to the artists and tracks maps
+        await appendGenresToArtists(allArtistsMap, artistResponseData)
 
-    // Get map of artists from tracks map
-    const allArtistsMap: Map<string, ArtistEntry> = await getArtistsFromAllTracksMap(allTracksMap)
-    
-    // Pull artist data from Spotify for each unique artist
-    const artistResponseData: Array<ArtistResponse> = await getArtistGenres(allArtistsMap)
+        await appendGenresToTracks(allTracksMap, allArtistsMap)
 
-    // Append artist data to the artists and tracks maps
-    await appendGenresToArtists(allArtistsMap, artistResponseData)
+        // Create a map of genres from tracks map & add the tracks to each genre
+        const allGenresMap: Map<string, Genre> = await createMapOfGenres(allTracksMap)   
 
-    await appendGenresToTracks(allTracksMap, allArtistsMap)
+        // Convert genres map into an array
+        const allGenres: Array<Genre> = await Array.from(allGenresMap, ([name, value]) => (value));
 
-    // Create a map of genres from tracks map & add the tracks to each genre
-    const allGenresMap: Map<string, Genre> = await createMapOfGenres(allTracksMap)   
-
-    return allGenresMap
+        return allGenres
+    } catch(error) {
+        throw new Error(error.message)
+    }
 }
 
 export async function pushArrayOfTracksToMap(tracks: Array<Track>, allTracksMap: Map<string, TrackEntry>): Promise<void> {
@@ -180,13 +181,13 @@ export async function createMapOfGenres(allTracksMap: Map<string, TrackEntry>): 
                 if(allGenresMap.has(genre)) {
                     allGenresMap.get(genre).count += 1
 
-                    allGenresMap.get(genre).tracks.push(trackData.track)
+                    // allGenresMap.get(genre).tracks.push(trackData.track) <- This was causing a circular structure
                 } else {
                     const newGenre = new Genre(
                         genre,
                         1,
-                        [trackData.track],
-                        [trackData.track.artists[0]]
+                        [], //[trackData.track], 
+                        [], // [trackData.track.artists[0]]
                     )
 
                     allGenresMap.set(genre, newGenre)

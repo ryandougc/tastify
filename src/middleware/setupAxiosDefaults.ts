@@ -1,6 +1,8 @@
-export const extractAccessTokenFromHeader = (req, res, next) => {
+import axios from 'axios'
+
+export const setupAxiosDefaults = async (req, res, next) => {
     try {
-        if(!req.headers.authorization) {
+        if(!res.locals.accessToken) {
             return next({
                 success: false,
                 status: 400,
@@ -8,7 +10,9 @@ export const extractAccessTokenFromHeader = (req, res, next) => {
             })
         }
 
-        res.locals.accessToken = req.headers.authorization
+        axios.defaults.headers.common["Authorization"] = res.locals.accessToken
+        axios.defaults.responseType = "json";
+
         next()
     } catch(error) {
         console.log(error)
@@ -16,7 +20,7 @@ export const extractAccessTokenFromHeader = (req, res, next) => {
         next({
             success: false,
             status: 500,
-            message: "There was an error extracting the access token from your request",
+            message: "There was an error with your access token, please try again.",
         })
     }
 };

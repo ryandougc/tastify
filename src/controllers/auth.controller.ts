@@ -2,6 +2,8 @@ import * as queryString from "query-string";
 import axios from "axios";
 
 import { generateRandomString } from "../lib/utils";
+import { checkUserProfileExists } from "../lib/dbDriver";
+import { Profile } from "../models/Profile";
 
 export const login = (req, res, next) => {
     const state = generateRandomString(16);
@@ -66,6 +68,17 @@ export const callback = async (req, res, next) => {
                 },
                 responseType: "json",
             });
+
+            const spotifyUsername = userData.data.id
+
+            // If you user doesn't already exist in the database, create their profile
+            const profileExists = await checkUserProfileExists(spotifyUsername)
+
+            if(!profileExists) {
+                const newProfile = new Profile(spotifyUsername)
+
+                newProfile.save()
+            }
 
             res.status(200).send({
                 accessnToken: accessToken,

@@ -4,3 +4,4 @@ dist
 delete-this-random-functions
 coverage
 var/db/sessions.db
+test.env

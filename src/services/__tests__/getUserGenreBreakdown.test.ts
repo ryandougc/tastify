@@ -107,7 +107,7 @@ describe('getUserGenreBreakdownService()', () => {
 
         expect(getLikedTracksService).toHaveBeenCalled()
         expect(getPlaylistTracksService).toHaveBeenCalled()
-        expect(result).toBeInstanceOf(Map<string, Genre>)
+        expect(result).toBeInstanceOf(Array<Genre>)
     })
     it("should return breakdown even if there are no liked songs", async () => {
         jest.mocked(getLikedTracksService).mockImplementation(() => {
@@ -156,7 +156,7 @@ describe('getUserGenreBreakdownService()', () => {
 
         expect(getLikedTracksService).toHaveBeenCalled()
         expect(getPlaylistTracksService).toHaveBeenCalled()
-        expect(result).toBeInstanceOf(Map<string, Genre>)
+        expect(result).toBeInstanceOf(Array<Genre>)
     })
     it("should return breakdown even if there are no playlist songs", async () => {
         jest.mocked(getLikedTracksService).mockImplementation(() => {
@@ -205,7 +205,7 @@ describe('getUserGenreBreakdownService()', () => {
 
         expect(getLikedTracksService).toHaveBeenCalled()
         expect(getPlaylistTracksService).toHaveBeenCalled()
-        expect(result).toBeInstanceOf(Map<string, Genre>)
+        expect(result).toBeInstanceOf(Array<Genre>)
     })
     it("should throw an error if there are no playlist tracks or liked tracks", async () => {
         jest.mocked(getLikedTracksService).mockImplementation(() => {
@@ -220,8 +220,10 @@ describe('getUserGenreBreakdownService()', () => {
             })
         })
 
-        const result = async () => await getUserGenreBreakdownService()
+        const result = async () => {
+            await getUserGenreBreakdownService()
+        }
 
-        expect(result).rejects.toThrow("This user does not have any liked tracks or playlit tracks")
+        expect(result).rejects.toThrow("This user does not have any liked tracks or playlist tracks")
     })
 })

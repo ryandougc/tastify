@@ -41,8 +41,6 @@ export const createUserProfile = async (userProfile: Profile): Promise<boolean> 
             analysis: userProfile.analysis
         })
 
-        console.log(result)
-
         return true
     } catch(error) {
         console.log(error)
@@ -69,9 +67,9 @@ export const getUserProfile = async (profileId: string): Promise<Profile> => {
     }
 }
 
-export const checkUserProfileExists = async (profileId: string): Promise<boolean> => {
+export const checkUserProfileExists = async (spotifyUsername: string): Promise<boolean> => {
     try {
-        const result = await MongoProfile.exists({ profileId: profileId }).exec()
+        const result = await MongoProfile.exists({ spotifyUsername: spotifyUsername }).exec()
 
         if(result === null) return false
 
@@ -93,15 +91,18 @@ export const updateUserProfile = async (userProfile: Profile): Promise<boolean> 
     }
 }
 
-export const deleteUserProfile = async (profileId: string): Promise<boolean> => {
+export const deleteUserProfile = async (spotifyUsername: string): Promise<boolean> => {
     try {
-        const deletedProfile = await MongoProfile.deleteOne({ profileId: profileId })
+        const deletedProfile = await MongoProfile.deleteOne({ spotifyUsername: spotifyUsername })
 
-        if(deletedProfile.deletedCount <= 0) throw Error("Invalid profile ID")
+        if(deletedProfile.deletedCount <= 0) throw new Error("This user could not be found in the database")
 
         return true
     } catch(error) {
-        console.log(error)
+        if(error.message === "This user could not be found in the database") {
+            throw new Error(error.message)
+        }
+
         throw new Error('Error while deleting a profile from the database')
     }
 }
@@ -174,9 +175,9 @@ export const getUsersComparisons = async (profileId: string): Promise<Array<Comp
     }
 }
 
-export const deleteAllUsersComparisons = async (profileId: string): Promise<boolean> => {
+export const deleteAllUsersComparisons = async (spotifyUsername: string): Promise<boolean> => {
     try {
-        const result = await MongoComparison.deleteMany({ $or: [{user1: profileId}, {user2: profileId}] }).exec()
+        const result = await MongoComparison.deleteMany({ $or: [{user1: spotifyUsername}, {user2: spotifyUsername}] }).exec()
 
         if(result.deletedCount <= 0) throw new Error('Error while deleting a comparison from the database')
 
@@ -187,13 +188,12 @@ export const deleteAllUsersComparisons = async (profileId: string): Promise<bool
     }
 }
 
-// Using this for the apiEndpoint.test.ts file so we don't need a profileId to find a user
 export const getUserProfileBySpotifyUsername = async (spotifyUsername: string): Promise<Profile> => {
     try {
         const profileData = await MongoProfile.findOne({ spotifyUsername: spotifyUsername })
             .select('-_id profileId spotifyUsername dateCreated analysis').exec()
 
-        if(profileData === null) throw new Error("This user could not be found")
+        if(profileData === null) throw new Error("This user could not be found in the database")
 
         const profile = new Profile(
             profileData.spotifyUsername,
@@ -204,7 +204,11 @@ export const getUserProfileBySpotifyUsername = async (spotifyUsername: string): 
 
         return profile
     } catch(error) {
+        if(error.message === "This user could not be found in the database") {
+            throw new Error(error.message)
+        }
         console.log(error)
+
         throw new Error("Error while querying the database for a profile")
     }
 }

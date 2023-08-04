@@ -14,7 +14,8 @@ import {
     updateUserProfile,
     deleteUserProfile,
     getUsersComparisons,
-    deleteAllUsersComparisons
+    deleteAllUsersComparisons,
+    getUserProfileBySpotifyUsername
   } from '../lib/dbDriver'
 import { getTop50Service } from '../services/getTop50';
 
@@ -44,7 +45,7 @@ export class Profile implements Profile {
 
     async save(): Promise<void> {
         try {
-            const userExists = await checkUserProfileExists(this.profileId)
+            const userExists = await checkUserProfileExists(this.spotifyUsername)
 
             if(userExists) await updateUserProfile(this)
             else await createUserProfile(this)
@@ -55,20 +56,21 @@ export class Profile implements Profile {
 
     async delete(): Promise<void> {
         try {
-            // Delete all comparisons associated with the user
-            await deleteAllUsersComparisons(this)
+            // This may change depending on the route we want to go with how friendships and comparisons work
+            // await deleteAllUsersComparisons(this.spotifyUsername)
 
-            await deleteUserProfile(this)
+            await deleteUserProfile(this.spotifyUsername)
         } catch(error) {
-            throw new Error(`Error saving profile: ${error}`)
+            throw new Error(error.message)
         }
     }
 
-    async generateAnalysis(): Promise<void> {
+    async generateAnalysis(): Promise<Analysis> {
         try {
-            const newAnalysis: Analysis = await this.analysis.generateAnalysis(this.profileId)
+            this.analysis = await this.analysis.generateAnalysis()
 
-            this.analysis = newAnalysis
+            // await this.save()
+            return this.analysis
         } catch(error) {
             throw new Error('Error generating analysis')
         }
@@ -95,15 +97,13 @@ export class Profile implements Profile {
         }
     }
     
-    static async getUserProfile(profileId: string): Promise<Profile> {
+    static async getUserProfile(spotifyUsername: string): Promise<Profile> {
         try {
-            const profile: Profile = await getUserProfile(profileId)
-
-            if(profile === null) throw new Error('Error fetching profile')
+            const profile: Profile = await getUserProfileBySpotifyUsername(spotifyUsername)
 
             return profile
         } catch(error) {
-            throw new Error('Error fetching profile')
+            throw new Error(error.message)
         }
     }
 }

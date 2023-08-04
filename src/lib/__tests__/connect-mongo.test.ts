@@ -124,9 +124,9 @@ describe('Mongo Database Functions', () => {
             }
         })
         it('should return true if a profile is found with the corresponding profileId', async () => {
-            const profileToCheck = globalDummyProfile.profileId
+            const spotifyUsernameToCheckForExistingProfile = globalDummyProfile.spotifyUsername
 
-            const profileExists: boolean = await checkUserProfileExists(profileToCheck)
+            const profileExists: boolean = await checkUserProfileExists(spotifyUsernameToCheckForExistingProfile)
 
             expect(profileExists).toBe(true)
         })
@@ -195,12 +195,24 @@ describe('Mongo Database Functions', () => {
                 throw new Error('Error seeding database')
             }
         })
-        it('should return true if the profile was deleted', async () => {
-            const profileId = globalDummyProfile.profileId
+        it('should return true if the profile was deleted and nolonger exists in the database', async () => {
+            const spotifyUsername: string = globalDummyProfile.spotifyUsername
 
-            const result = await deleteUserProfile(profileId)
+            const result = await deleteUserProfile(spotifyUsername)
+
+            const foundProfile: boolean = await checkUserProfileExists(spotifyUsername)
 
             expect(result).toBe(true)
+            expect(foundProfile).toBe(false)
+        })
+        it("should throw an error if the specified user to delete doesn\'t exist in the database", () => {
+            const fakeSpotifyUsername: string = "Tastify"
+
+            const result = async () => {
+                await deleteUserProfile(fakeSpotifyUsername)
+            }
+
+            expect(result).rejects.toThrow("This user could not be found in the database")
         })
     })
     describe('createComparison()', () => {

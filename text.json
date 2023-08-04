@@ -1,0 +1,1588 @@
+Profile {
+  spotifyUsername: 'whitekidfromtheblock',
+  profileId: '6d3e14e5-2b32-47e8-b936-a3d6e99cc191',
+  dateCreated: 2023-08-04T21:37:42.558Z,
+  analysis: Analysis {
+    genres: [
+      Genre { name: 'modern rock', count: 49, tracks: [], artists: [] },
+      Genre { name: 'rock', count: 36, tracks: [], artists: [] },
+      Genre {
+        name: 'underground hip hop',
+        count: 61,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'bass house', count: 4, tracks: [], artists: [] },
+      Genre { name: 'jump up', count: 1, tracks: [], artists: [] },
+      Genre {
+        name: 'israeli techno',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'new americana',
+        count: 8,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'southern americana',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'modern folk rock',
+        count: 6,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'roots americana',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'art pop', count: 16, tracks: [], artists: [] },
+      Genre { name: 'indie rock', count: 40, tracks: [], artists: [] },
+      Genre { name: 'indie soul', count: 36, tracks: [], artists: [] },
+      Genre {
+        name: 'indietronica',
+        count: 60,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'kiwi rock', count: 2, tracks: [], artists: [] },
+      Genre {
+        name: 'neo-psychedelic',
+        count: 15,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'portland hip hop',
+        count: 3,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'psychedelic pop',
+        count: 2,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'german techno',
+        count: 5,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'german trance',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'trance', count: 5, tracks: [], artists: [] },
+      Genre { name: 'duluth indie', count: 1, tracks: [], artists: [] },
+      Genre { name: 'indie folk', count: 20, tracks: [], artists: [] },
+      Genre { name: 'jam band', count: 1, tracks: [], artists: [] },
+      Genre {
+        name: 'progressive bluegrass',
+        count: 2,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'stomp and holler',
+        count: 28,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'garage rock', count: 10, tracks: [], artists: [] },
+      Genre {
+        name: 'uk alternative hip hop',
+        count: 14,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'gauze pop', count: 7, tracks: [], artists: [] },
+      Genre {
+        name: 'progressive house',
+        count: 12,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'asheville indie',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'folk-pop', count: 4, tracks: [], artists: [] },
+      Genre {
+        name: 'north carolina roots',
+        count: 2,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'stomp and flutter',
+        count: 2,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'grime', count: 3, tracks: [], artists: [] },
+      Genre { name: 'uk hip hop', count: 5, tracks: [], artists: [] },
+      Genre {
+        name: 'instrumental post-rock',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'progressive trance house',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'chamber pop', count: 28, tracks: [], artists: [] },
+      Genre { name: 'chillwave', count: 14, tracks: [], artists: [] },
+      Genre { name: 'denver indie', count: 1, tracks: [], artists: [] },
+      Genre { name: 'indie pop', count: 12, tracks: [], artists: [] },
+      Genre { name: 'indie surf', count: 7, tracks: [], artists: [] },
+      Genre { name: 'shimmer pop', count: 17, tracks: [], artists: [] },
+      Genre { name: 'countrygaze', count: 1, tracks: [], artists: [] },
+      Genre { name: 'sydney indie', count: 1, tracks: [], artists: [] },
+      Genre {
+        name: 'british singer-songwriter',
+        count: 3,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'modern indie folk',
+        count: 2,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'canadian americana',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'quebec indie', count: 2, tracks: [], artists: [] },
+      Genre {
+        name: 'alternative rock',
+        count: 16,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'blues rock', count: 3, tracks: [], artists: [] },
+      Genre {
+        name: 'modern blues rock',
+        count: 7,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'punk blues', count: 7, tracks: [], artists: [] },
+      Genre { name: 'roots rock', count: 3, tracks: [], artists: [] },
+      Genre {
+        name: 'brooklyn indie',
+        count: 3,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'dream pop', count: 5, tracks: [], artists: [] },
+      Genre { name: 'dreamo', count: 3, tracks: [], artists: [] },
+      Genre {
+        name: 'modern dream pop',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'nu gaze', count: 2, tracks: [], artists: [] },
+      Genre { name: 'shoegaze', count: 1, tracks: [], artists: [] },
+      Genre { name: 'lo-fi', count: 2, tracks: [], artists: [] },
+      Genre {
+        name: 'new jersey indie',
+        count: 2,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'noise pop', count: 7, tracks: [], artists: [] },
+      Genre { name: 'irish metal', count: 1, tracks: [], artists: [] },
+      Genre { name: 'bow pop', count: 1, tracks: [], artists: [] },
+      Genre { name: 'celtic rock', count: 1, tracks: [], artists: [] },
+      Genre { name: 'pop rap', count: 108, tracks: [], artists: [] },
+      Genre {
+        name: 'australian surf rock',
+        count: 12,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'alternative hip hop',
+        count: 38,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'hip hop', count: 176, tracks: [], artists: [] },
+      Genre {
+        name: 'indie hip hop',
+        count: 13,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'trap', count: 58, tracks: [], artists: [] },
+      Genre {
+        name: 'compositional ambient',
+        count: 4,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'neo-classical',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'pittsburgh rap',
+        count: 9,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'rap', count: 192, tracks: [], artists: [] },
+      Genre { name: 'j-pixie', count: 1, tracks: [], artists: [] },
+      Genre {
+        name: 'japanese electropop',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'alternative dance',
+        count: 2,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'dance rock', count: 4, tracks: [], artists: [] },
+      Genre { name: 'dance-punk', count: 1, tracks: [], artists: [] },
+      Genre {
+        name: 'electronic rock',
+        count: 2,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'electronica', count: 15, tracks: [], artists: [] },
+      Genre { name: 'neo-synthpop', count: 7, tracks: [], artists: [] },
+      Genre { name: 'new rave', count: 1, tracks: [], artists: [] },
+      Genre { name: 'dutch pop', count: 1, tracks: [], artists: [] },
+      Genre { name: 'escape room', count: 14, tracks: [], artists: [] },
+      Genre { name: 'neo soul', count: 12, tracks: [], artists: [] },
+      Genre { name: 'afrofuturism', count: 3, tracks: [], artists: [] },
+      Genre {
+        name: 'experimental hip hop',
+        count: 7,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'glitch', count: 3, tracks: [], artists: [] },
+      Genre { name: 'glitch hop', count: 2, tracks: [], artists: [] },
+      Genre {
+        name: 'instrumental hip hop',
+        count: 7,
+        tracks: [],
+        artists: []
+      },
+      Genre {
+        name: 'intelligent dance music',
+        count: 9,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'jazztronica', count: 2, tracks: [], artists: [] },
+      Genre {
+        name: 'psychedelic hip hop',
+        count: 12,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'wonky', count: 7, tracks: [], artists: [] },
+      Genre {
+        name: 'indie anthem-folk',
+        count: 1,
+        tracks: [],
+        artists: []
+      },
+      Genre { name: 'pov: indie', count: 29, tracks: [], artists: [] },
+      ... 408 more items
+    ],
+    top50: {
+      tracks: [
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/066X20Nz7iquqkkCW6Jxy6',
+              id: '066X20Nz7iquqkkCW6Jxy6',
+              name: 'LCD Soundsystem',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/2Ud3deeqLAG988pfW0Kwcl',
+          id: '2Ud3deeqLAG988pfW0Kwcl',
+          name: 'All My Friends',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/1rHOtdmGNr5vcYNw5v7QGC',
+              id: '1rHOtdmGNr5vcYNw5v7QGC',
+              name: 'Kenny Beats',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/1rOKAsJZJDIikOKDeUfPRV',
+          id: '1rOKAsJZJDIikOKDeUfPRV',
+          name: 'Last Words',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3jzXlBF2157k4exx7idecs',
+              id: '3jzXlBF2157k4exx7idecs',
+              name: 'Leif Vollebekk',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/7jO9w2rWrJr5J9cXinxbem',
+          id: '7jO9w2rWrJr5J9cXinxbem',
+          name: 'Blood Brother',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/1ybAN3utgdoUL1MUCtH4QM',
+              id: '1ybAN3utgdoUL1MUCtH4QM',
+              name: 'Tennis',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/7sMn5JJ7rzgl9MmgucEXsZ',
+          id: '7sMn5JJ7rzgl9MmgucEXsZ',
+          name: 'Need Your Love',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/12fRkVfO2fUsz1QHgDAG3g',
+              id: '12fRkVfO2fUsz1QHgDAG3g',
+              name: 'Julia Jacklin',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/6AqFR4UHMbdlMPcJGrynXV',
+          id: '6AqFR4UHMbdlMPcJGrynXV',
+          name: 'to Perth, before the border closes',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/29XOeO6KIWxGthejQqn793',
+              id: '29XOeO6KIWxGthejQqn793',
+              name: 'Flying Lotus',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/02RxTXoojHi7ISW3EbqdR5',
+          id: '02RxTXoojHi7ISW3EbqdR5',
+          name: 'Black Balloons Reprise',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/1nJX9DZHvd27lKDx8NM8Rt',
+              id: '1nJX9DZHvd27lKDx8NM8Rt',
+              name: 'Nix Northwest',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/5FyUzG6elDlMkj2TIzvjhe',
+          id: '5FyUzG6elDlMkj2TIzvjhe',
+          name: 'One Way Ticket',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/0nnYdIpahs41QiZ9MWp5Wx',
+              id: '0nnYdIpahs41QiZ9MWp5Wx',
+              name: 'Holly Humberstone',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/7yuecadXy2rAgc6Id2D6Qw',
+          id: '7yuecadXy2rAgc6Id2D6Qw',
+          name: 'Vanilla (Stairwell Version)',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/2VKfXEWzhUi9siHBDTI02Y',
+              id: '2VKfXEWzhUi9siHBDTI02Y',
+              name: 'Joep Beving',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/1ZC21hJb2GASRkaoZvUcCS',
+          id: '1ZC21hJb2GASRkaoZvUcCS',
+          name: 'Beving: Ala',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3xYXYzm9H3RzyQgBrYwIcx',
+              id: '3xYXYzm9H3RzyQgBrYwIcx',
+              name: 'Colter Wall',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/1FJDhcC36CbA16lMIxgT1F',
+          id: '1FJDhcC36CbA16lMIxgT1F',
+          name: 'Cowpoke',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/2avRYQUWQpIkzJOEkf0MdY',
+              id: '2avRYQUWQpIkzJOEkf0MdY',
+              name: 'Kx5',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/3KAExCnsrlAw9ugJcA1QDH',
+          id: '3KAExCnsrlAw9ugJcA1QDH',
+          name: 'Escape (feat. Hayla)',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/7gRGh8w4G9zaFJSaIYp8HH',
+              id: '7gRGh8w4G9zaFJSaIYp8HH',
+              name: 'River Whyless',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/6hUTzxvNiJ1c0lYqgoOTBW',
+          id: '6hUTzxvNiJ1c0lYqgoOTBW',
+          name: 'Motel 6',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/5oifjQw72WO7Jut07fVWMy',
+              id: '5oifjQw72WO7Jut07fVWMy',
+              name: 'KAYTRAMINÉ',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/3CblJq8QQQ0bb7vwJu8c3v',
+          id: '3CblJq8QQQ0bb7vwJu8c3v',
+          name: '4EVA (feat. Pharrell Williams)',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/4FmJD0mpgQ70SNt2EKK8tq',
+              id: '4FmJD0mpgQ70SNt2EKK8tq',
+              name: 'Miracle Of Sound',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/43y43zn65yVG3uyFdD4Tx3',
+          id: '43y43zn65yVG3uyFdD4Tx3',
+          name: 'Onwards We Row',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/675tsBPpaZtqyiBwEf3ZEP',
+              id: '675tsBPpaZtqyiBwEf3ZEP',
+              name: 'Watchhouse',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/5BlGmys9VqmHZbf7eswxG1',
+          id: '5BlGmys9VqmHZbf7eswxG1',
+          name: 'Daylight',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3LtlJprzuq0Ii8p8YFZXai',
+              id: '3LtlJprzuq0Ii8p8YFZXai',
+              name: 'Peter Sandberg',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/25kGCuGWAYfyoz7RozlTpO',
+          id: '25kGCuGWAYfyoz7RozlTpO',
+          name: 'Motion',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/2SrSdSvpminqmStGELCSNd',
+              id: '2SrSdSvpminqmStGELCSNd',
+              name: 'Stormzy',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/5Rbj8akony3l0NNM5TjH1F',
+          id: '5Rbj8akony3l0NNM5TjH1F',
+          name: 'Wiley Flow',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/2FwDTncULUnmANIh7qKa5z',
+              id: '2FwDTncULUnmANIh7qKa5z',
+              name: 'FKJ',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/7hZnAqzJGdz58gS4XxRowB',
+          id: '7hZnAqzJGdz58gS4XxRowB',
+          name: 'Sundays - Just Piano Version',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/12j6dJrPXanCBwY599pZxf',
+              id: '12j6dJrPXanCBwY599pZxf',
+              name: 'Matt Maltese',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/3NM41PVVUr0ceootKAtkAj',
+          id: '3NM41PVVUr0ceootKAtkAj',
+          name: 'As the World Caves In',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3mVWMgLc7bcyCBtL2ymZwK',
+              id: '3mVWMgLc7bcyCBtL2ymZwK',
+              name: 'The Arcs',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/3zobfMEipF81bJfPVp1h09',
+          id: '3zobfMEipF81bJfPVp1h09',
+          name: 'Stay in My Corner',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/5Q81rlcTFh3k6DQJXPdsot',
+              id: '5Q81rlcTFh3k6DQJXPdsot',
+              name: 'Mura Masa',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/3sTN90bIP2cJ1783ctHykO',
+          id: '3sTN90bIP2cJ1783ctHykO',
+          name: 'Love$ick (feat. A$AP Rocky)',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/6RedK3o51NbUJuJxXlT4kj',
+              id: '6RedK3o51NbUJuJxXlT4kj',
+              name: '88-Keys',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/5h0Jgt873QtgL6nJRBGfT6',
+          id: '5h0Jgt873QtgL6nJRBGfT6',
+          name: "That's Life (feat. Mac Miller & Sia)",
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/2GVtgxcx7jg5xVCZsIHSGN',
+              id: '2GVtgxcx7jg5xVCZsIHSGN',
+              name: 'Dombresky',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/1d63eYv3GCWgOvpRMZial6',
+          id: '1d63eYv3GCWgOvpRMZial6',
+          name: 'Futurmastic',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3xYXYzm9H3RzyQgBrYwIcx',
+              id: '3xYXYzm9H3RzyQgBrYwIcx',
+              name: 'Colter Wall',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/2ZL60ZCuasf2zih8Nz7ISU',
+          id: '2ZL60ZCuasf2zih8Nz7ISU',
+          name: 'Big Iron',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/42Np3r8zXnaKcjLQsQSjyG',
+              id: '42Np3r8zXnaKcjLQsQSjyG',
+              name: 'Blackalicious',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/4TlYG3mKosVWfGbb9VfDh3',
+          id: '4TlYG3mKosVWfGbb9VfDh3',
+          name: 'Make You Feel That Way',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/4W3fa7tiXGVXl3KilbACqt',
+              id: '4W3fa7tiXGVXl3KilbACqt',
+              name: 'Gustavo Santaolalla',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/2IXJyG1DX93g2EhFXghz37',
+          id: '2IXJyG1DX93g2EhFXghz37',
+          name: 'The Choice',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3LiQA7CeDBEpoWI0TNBJgv',
+              id: '3LiQA7CeDBEpoWI0TNBJgv',
+              name: 'The Grogans',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/7vERhzm3ep1mgFzqQw6wHh',
+          id: '7vERhzm3ep1mgFzqQw6wHh',
+          name: 'How Would You Know',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/6Pim5E5Lm03COsjHj2aEiK',
+              id: '6Pim5E5Lm03COsjHj2aEiK',
+              name: 'Bess Atwell',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/5Es0cNDn3i2P03BWcAs7v9',
+          id: '5Es0cNDn3i2P03BWcAs7v9',
+          name: 'Nobody',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/7mnBLXK823vNxN3UWB7Gfz',
+              id: '7mnBLXK823vNxN3UWB7Gfz',
+              name: 'The Black Keys',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/1pwWrPxonLIE12WWu9NzgU',
+          id: '1pwWrPxonLIE12WWu9NzgU',
+          name: 'Turn Blue',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/246dkjvS1zLTtiykXe5h60',
+              id: '246dkjvS1zLTtiykXe5h60',
+              name: 'Post Malone',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/2VdT56BGpdqNHUgOe1j5vc',
+          id: '2VdT56BGpdqNHUgOe1j5vc',
+          name: 'Rich & Sad',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb',
+              id: '5INjqkS1o8h1imAzPqGZBb',
+              name: 'Tame Impala',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/0TeHvhaNBSuv7yGQ9dLouv',
+          id: '0TeHvhaNBSuv7yGQ9dLouv',
+          name: 'Half Full Glass Of Wine',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/4gHcu2JoaXJ0mV4aNPCd7N',
+              id: '4gHcu2JoaXJ0mV4aNPCd7N',
+              name: 'Benny Sings',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/4DWyAq9ExNPogDaduac3Ym',
+          id: '4DWyAq9ExNPogDaduac3Ym',
+          name: 'Rolled Up',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/2gzcB4vMIStEDZiQlvywGm',
+              id: '2gzcB4vMIStEDZiQlvywGm',
+              name: 'The Vernon Spring',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/25iPLrlogdTHS9ZYnUEtxw',
+          id: '25iPLrlogdTHS9ZYnUEtxw',
+          name: "Mother's Love",
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/4Xi6LSfFqv26XgP9NKN26U',
+              id: '4Xi6LSfFqv26XgP9NKN26U',
+              name: 'AJ Tracey',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/3cCLTTEpHB0f47z5GBcUr3',
+          id: '3cCLTTEpHB0f47z5GBcUr3',
+          name: 'Anxious',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/6mMCSCuTbGU6kNr4303LwH',
+              id: '6mMCSCuTbGU6kNr4303LwH',
+              name: 'The Flashbulb',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/4CHIJuqR1jLfzA72THSzUm',
+          id: '4CHIJuqR1jLfzA72THSzUm',
+          name: 'Precipice',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/40ZNYROS4zLfyyBSs2PGe2',
+              id: '40ZNYROS4zLfyyBSs2PGe2',
+              name: 'Zach Bryan',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/5jfhLCSIFUO4ndzNRh4w4G',
+          id: '5jfhLCSIFUO4ndzNRh4w4G',
+          name: 'Burn, Burn, Burn',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/34jw2BbxjoYalTp8cJFCPv',
+              id: '34jw2BbxjoYalTp8cJFCPv',
+              name: 'Heart',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/5zH710lFSLtkHbMkslLDjR',
+          id: '5zH710lFSLtkHbMkslLDjR',
+          name: 'Crazy On You',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/0nnYdIpahs41QiZ9MWp5Wx',
+              id: '0nnYdIpahs41QiZ9MWp5Wx',
+              name: 'Holly Humberstone',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/6A6A6VJtMLsPKyHxNlYT5h',
+          id: '6A6A6VJtMLsPKyHxNlYT5h',
+          name: 'Haunted House',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/4GGfAshSkqoxpZdoaHm7ky',
+              id: '4GGfAshSkqoxpZdoaHm7ky',
+              name: 'ERNEST',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/1ZDHyW7PQwFHoQXbQTZBhz',
+          id: '1ZDHyW7PQwFHoQXbQTZBhz',
+          name: 'Tennessee Queen',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3QTDHixorJelOLxoxcjqGx',
+              id: '3QTDHixorJelOLxoxcjqGx',
+              name: 'SiR',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/4bxr2sOVZSLjIN7tQx53ir',
+          id: '4bxr2sOVZSLjIN7tQx53ir',
+          name: 'Life Is Good (feat. Scribz Riley)',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/5Pb27ujIyYb33zBqVysBkj',
+              id: '5Pb27ujIyYb33zBqVysBkj',
+              name: 'RÜFÜS DU SOL',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/5HGxLtYxTriF7mMiriSpaz',
+          id: '5HGxLtYxTriF7mMiriSpaz',
+          name: 'You Were Right',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3jK9MiCrA42lLAdMGUZpwa',
+              id: '3jK9MiCrA42lLAdMGUZpwa',
+              name: 'Anderson .Paak',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/3LfnrqODEqXpp7s974cT4z',
+          id: '3LfnrqODEqXpp7s974cT4z',
+          name: 'Saviers Road',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/5mdTuNl23tON1WlsVbvD18',
+              id: '5mdTuNl23tON1WlsVbvD18',
+              name: 'Sound Quelle',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/0pbZX9CK1W2iIiUFJf39wr',
+          id: '0pbZX9CK1W2iIiUFJf39wr',
+          name: 'Ah Up',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/4xRYI6VqpkE3UwrDrAZL8L',
+              id: '4xRYI6VqpkE3UwrDrAZL8L',
+              name: 'Logic',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/1zucHJN4WKHIzSL4FyiJw9',
+          id: '1zucHJN4WKHIzSL4FyiJw9',
+          name: 'Innermission',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3Sz7ZnJQBIHsXLUSo0OQtM',
+              id: '3Sz7ZnJQBIHsXLUSo0OQtM',
+              name: 'Mac DeMarco',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/2RwOqicYzwMSuzKzHx78jm',
+          id: '2RwOqicYzwMSuzKzHx78jm',
+          name: 'This Old Dog',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/3v6Ji4uoWtKRkhuDUaxi9n',
+              id: '3v6Ji4uoWtKRkhuDUaxi9n',
+              name: 'Dynoro',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/0E9ZjEAyAwOXZ7wJC0PD33',
+          id: '0E9ZjEAyAwOXZ7wJC0PD33',
+          name: 'In My Mind',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/08GQAI4eElDnROBrJRGE0X',
+              id: '08GQAI4eElDnROBrJRGE0X',
+              name: 'Fleetwood Mac',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/0ofHAoxe9vBkTCp2UQIavz',
+          id: '0ofHAoxe9vBkTCp2UQIavz',
+          name: 'Dreams - 2004 Remaster',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/718COspgdWOnwOFpJHRZHS',
+              id: '718COspgdWOnwOFpJHRZHS',
+              name: 'Luke Combs',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/1mMLMZYXkMueg65jRRWG1l',
+          id: '1mMLMZYXkMueg65jRRWG1l',
+          name: 'When It Rains It Pours',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/1HMhQzj2QXxR40zGDdaK6y',
+              id: '1HMhQzj2QXxR40zGDdaK6y',
+              name: 'Kojey Radical',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/69hPfpEU0INTt4IzpIbqds',
+          id: '69hPfpEU0INTt4IzpIbqds',
+          name: 'Cashmere Tears',
+          type: 'track',
+          genres: []
+        },
+        {
+          artists: [
+            Artist {
+              genres: [],
+              href: 'https://api.spotify.com/v1/artists/24Hb4GKFYquK73R8mTyInu',
+              id: '24Hb4GKFYquK73R8mTyInu',
+              name: 'KLOUD',
+              popularity: null
+            }
+          ],
+          href: 'https://api.spotify.com/v1/tracks/0MyfdGptOUnUnGzJmiyCOG',
+          id: '0MyfdGptOUnUnGzJmiyCOG',
+          name: 'VIRUS - Odd Mob Remix',
+          type: 'track',
+          genres: []
+        }
+      ],
+      artists: [
+        {
+          genres: [
+            'canadian americana',
+            'canadian contemporary country',
+            'outlaw country',
+            'saskatchewan indie'
+          ],
+          href: 'https://api.spotify.com/v1/artists/3xYXYzm9H3RzyQgBrYwIcx',
+          id: '3xYXYzm9H3RzyQgBrYwIcx',
+          name: 'Colter Wall',
+          popularity: 69
+        },
+        {
+          genres: [ 'dfw rap', 'melodic rap', 'pop', 'rap' ],
+          href: 'https://api.spotify.com/v1/artists/246dkjvS1zLTtiykXe5h60',
+          id: '246dkjvS1zLTtiykXe5h60',
+          name: 'Post Malone',
+          popularity: 89
+        },
+        {
+          genres: [
+            'argentine ambient',
+            'latin classical',
+            'latin soundtrack',
+            'orchestral soundtrack',
+            'soundtrack'
+          ],
+          href: 'https://api.spotify.com/v1/artists/4W3fa7tiXGVXl3KilbACqt',
+          id: '4W3fa7tiXGVXl3KilbACqt',
+          name: 'Gustavo Santaolalla',
+          popularity: 62
+        },
+        {
+          genres: [ 'alt z', 'indie pop', 'modern alternative pop', 'uk pop' ],
+          href: 'https://api.spotify.com/v1/artists/0nnYdIpahs41QiZ9MWp5Wx',
+          id: '0nnYdIpahs41QiZ9MWp5Wx',
+          name: 'Holly Humberstone',
+          popularity: 58
+        },
+        {
+          genres: [ 'indie pop rap', 'oakland hip hop', 'pop rap', 'rap' ],
+          href: 'https://api.spotify.com/v1/artists/02kJSzxNuaWGqwubyUba0Z',
+          id: '02kJSzxNuaWGqwubyUba0Z',
+          name: 'G-Eazy',
+          popularity: 73
+        },
+        {
+          genres: [ 'conscious hip hop', 'hip hop', 'pop rap', 'rap' ],
+          href: 'https://api.spotify.com/v1/artists/4xRYI6VqpkE3UwrDrAZL8L',
+          id: '4xRYI6VqpkE3UwrDrAZL8L',
+          name: 'Logic',
+          popularity: 74
+        },
+        {
+          genres: [ 'edmonton indie', 'lo-fi indie', 'pov: indie' ],
+          href: 'https://api.spotify.com/v1/artists/3Sz7ZnJQBIHsXLUSo0OQtM',
+          id: '3Sz7ZnJQBIHsXLUSo0OQtM',
+          name: 'Mac DeMarco',
+          popularity: 78
+        },
+        {
+          genres: [ 'indie hip hop', 'trap', 'underground hip hop' ],
+          href: 'https://api.spotify.com/v1/artists/1rHOtdmGNr5vcYNw5v7QGC',
+          id: '1rHOtdmGNr5vcYNw5v7QGC',
+          name: 'Kenny Beats',
+          popularity: 62
+        },
+        {
+          genres: [ 'hip hop', 'pittsburgh rap', 'pop rap', 'rap' ],
+          href: 'https://api.spotify.com/v1/artists/4LLpKhyESsyAXpc4laK94U',
+          id: '4LLpKhyESsyAXpc4laK94U',
+          name: 'Mac Miller',
+          popularity: 81
+        },
+        {
+          genres: [
+            'canadian indie',
+            'canadian singer-songwriter',
+            'vancouver indie'
+          ],
+          href: 'https://api.spotify.com/v1/artists/5ByjU6oarxRC2Y85JpKx1n',
+          id: '5ByjU6oarxRC2Y85JpKx1n',
+          name: 'Dan Mangan',
+          popularity: 40
+        },
+        {
+          genres: [ 'classic oklahoma country', 'modern country pop' ],
+          href: 'https://api.spotify.com/v1/artists/40ZNYROS4zLfyyBSs2PGe2',
+          id: '40ZNYROS4zLfyyBSs2PGe2',
+          name: 'Zach Bryan',
+          popularity: 82
+        },
+        {
+          genres: [ 'orchestral soundtrack', 'scorecore', 'video game music' ],
+          href: 'https://api.spotify.com/v1/artists/77yY2QmM6bYvjJ3y5L2R0v',
+          id: '77yY2QmM6bYvjJ3y5L2R0v',
+          name: 'Jeremy Soule',
+          popularity: 63
+        },
+        {
+          genres: [ 'modern folk rock' ],
+          href: 'https://api.spotify.com/v1/artists/4qU7IJSReZnsLy5907Mtau',
+          id: '4qU7IJSReZnsLy5907Mtau',
+          name: 'Richy Mitch & The Coal Miners',
+          popularity: 65
+        },
+        {
+          genres: [
+            'canadian hip hop',
+            'canadian pop',
+            'hip hop',
+            'pop rap',
+            'rap'
+          ],
+          href: 'https://api.spotify.com/v1/artists/3TVXtAsR1Inumwj472S9r4',
+          id: '3TVXtAsR1Inumwj472S9r4',
+          name: 'Drake',
+          popularity: 94
+        },
+        {
+          genres: [ 'filter house', 'indie soul' ],
+          href: 'https://api.spotify.com/v1/artists/2FwDTncULUnmANIh7qKa5z',
+          id: '2FwDTncULUnmANIh7qKa5z',
+          name: 'FKJ',
+          popularity: 65
+        },
+        {
+          genres: [ 'conscious hip hop', 'hip hop', 'rap', 'west coast rap' ],
+          href: 'https://api.spotify.com/v1/artists/2YZyLoL8N0Wb9xBt1NhZWg',
+          id: '2YZyLoL8N0Wb9xBt1NhZWg',
+          name: 'Kendrick Lamar',
+          popularity: 87
+        },
+        {
+          genres: [
+            'australian psych',
+            'modern rock',
+            'neo-psychedelic',
+            'rock'
+          ],
+          href: 'https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb',
+          id: '5INjqkS1o8h1imAzPqGZBb',
+          name: 'Tame Impala',
+          popularity: 78
+        },
+        {
+          genres: [ 'contemporary country' ],
+          href: 'https://api.spotify.com/v1/artists/4oUHIQIBe0LHzYfvXNW4QM',
+          id: '4oUHIQIBe0LHzYfvXNW4QM',
+          name: 'Morgan Wallen',
+          popularity: 88
+        },
+        {
+          genres: [
+            'beatlesque',
+            'british invasion',
+            'classic rock',
+            'merseybeat',
+            'psychedelic rock',
+            'rock'
+          ],
+          href: 'https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2',
+          id: '3WrFJ7ztbogyGnTHbHJFl2',
+          name: 'The Beatles',
+          popularity: 81
+        },
+        {
+          genres: [ 'adult standards', 'easy listening', 'lounge' ],
+          href: 'https://api.spotify.com/v1/artists/1Mxqyy3pSjf8kZZL4QVxS0',
+          id: '1Mxqyy3pSjf8kZZL4QVxS0',
+          name: 'Frank Sinatra',
+          popularity: 74
+        },
+        {
+          genres: [
+            'alternative rock',
+            'blues rock',
+            'garage rock',
+            'indie rock',
+            'indietronica',
+            'modern blues rock',
+            'modern rock',
+            'punk blues',
+            'rock',
+            'roots rock'
+          ],
+          href: 'https://api.spotify.com/v1/artists/7mnBLXK823vNxN3UWB7Gfz',
+          id: '7mnBLXK823vNxN3UWB7Gfz',
+          name: 'The Black Keys',
+          popularity: 69
+        },
+        {
+          genres: [
+            'canadian electronic',
+            'complextro',
+            'edm',
+            'electro house',
+            'pop dance',
+            'progressive house'
+          ],
+          href: 'https://api.spotify.com/v1/artists/2CIMQHirSU0MQqyYHq0eOx',
+          id: '2CIMQHirSU0MQqyYHq0eOx',
+          name: 'deadmau5',
+          popularity: 66
+        },
+        {
+          genres: [
+            'downtempo',
+            'electronica',
+            'indietronica',
+            'intelligent dance music'
+          ],
+          href: 'https://api.spotify.com/v1/artists/5oOhM2DFWab8XhSdQiITry',
+          id: '5oOhM2DFWab8XhSdQiITry',
+          name: 'Tycho',
+          popularity: 56
+        },
+        {
+          genres: [ 'compositional ambient', 'neo-classical' ],
+          href: 'https://api.spotify.com/v1/artists/2VKfXEWzhUi9siHBDTI02Y',
+          id: '2VKfXEWzhUi9siHBDTI02Y',
+          name: 'Joep Beving',
+          popularity: 57
+        },
+        {
+          genres: [ 'australian electropop', 'indietronica' ],
+          href: 'https://api.spotify.com/v1/artists/5Pb27ujIyYb33zBqVysBkj',
+          id: '5Pb27ujIyYb33zBqVysBkj',
+          name: 'RÜFÜS DU SOL',
+          popularity: 69
+        },
+        {
+          genres: [ 'electronic djent', 'video game music' ],
+          href: 'https://api.spotify.com/v1/artists/13ab1LgQZ3tQOhkDRRYB8Y',
+          id: '13ab1LgQZ3tQOhkDRRYB8Y',
+          name: 'Mick Gordon',
+          popularity: 59
+        },
+        {
+          genres: [ 'multidisciplinary' ],
+          href: 'https://api.spotify.com/v1/artists/4t5XnkAKxcaYcDXI726A4Y',
+          id: '4t5XnkAKxcaYcDXI726A4Y',
+          name: 'Duval Timothy',
+          popularity: 36
+        },
+        {
+          genres: [
+            'album rock',
+            'classic rock',
+            'rock',
+            'soft rock',
+            'yacht rock'
+          ],
+          href: 'https://api.spotify.com/v1/artists/08GQAI4eElDnROBrJRGE0X',
+          id: '08GQAI4eElDnROBrJRGE0X',
+          name: 'Fleetwood Mac',
+          popularity: 79
+        },
+        {
+          genres: [
+            'compositional ambient',
+            'electronica',
+            'neoclassical darkwave'
+          ],
+          href: 'https://api.spotify.com/v1/artists/5gqhueRUZEa7VDnQt4HODp',
+          id: '5gqhueRUZEa7VDnQt4HODp',
+          name: 'Nils Frahm',
+          popularity: 58
+        },
+        {
+          genres: [ 'hip hop', 'ohio hip hop', 'pop rap', 'rap' ],
+          href: 'https://api.spotify.com/v1/artists/0fA0VVWsXO9YnASrzqfmYu',
+          id: '0fA0VVWsXO9YnASrzqfmYu',
+          name: 'Kid Cudi',
+          popularity: 79
+        },
+        {
+          genres: [ 'lgbtq+ hip hop', 'neo soul' ],
+          href: 'https://api.spotify.com/v1/artists/2h93pZq0e7k5yf4dywlkpM',
+          id: '2h93pZq0e7k5yf4dywlkpM',
+          name: 'Frank Ocean',
+          popularity: 81
+        },
+        {
+          genres: [ 'edm', 'house', 'stutter house' ],
+          href: 'https://api.spotify.com/v1/artists/4oLeXFyACqeem2VImYeBFe',
+          id: '4oLeXFyACqeem2VImYeBFe',
+          name: 'Fred again..',
+          popularity: 74
+        },
+        {
+          genres: [ 'contemporary country', 'country' ],
+          href: 'https://api.spotify.com/v1/artists/718COspgdWOnwOFpJHRZHS',
+          id: '718COspgdWOnwOFpJHRZHS',
+          name: 'Luke Combs',
+          popularity: 83
+        },
+        {
+          genres: [ 'chillwave', 'wonky' ],
+          href: 'https://api.spotify.com/v1/artists/1iqXhsjGeWi2Gje5q0mFYb',
+          id: '1iqXhsjGeWi2Gje5q0mFYb',
+          name: 'xxyyxx',
+          popularity: 37
+        },
+        {
+          genres: [
+            'chamber pop',
+            'folk',
+            'indie rock',
+            'indietronica',
+            'modern rock',
+            'seattle indie',
+            'singer-songwriter',
+            'stomp and holler'
+          ],
+          href: 'https://api.spotify.com/v1/artists/4EVpmkEwrLYEg6jIsiPMIb',
+          id: '4EVpmkEwrLYEg6jIsiPMIb',
+          name: 'Fleet Foxes',
+          popularity: 62
+        },
+        {
+          genres: [],
+          href: 'https://api.spotify.com/v1/artists/2sXnk24vARe4jxHbd1HbEq',
+          id: '2sXnk24vARe4jxHbd1HbEq',
+          name: 'Million Eyes',
+          popularity: 44
+        },
+        {
+          genres: [ 'canadian indie', 'kelowna bc indie', 'vancouver indie' ],
+          href: 'https://api.spotify.com/v1/artists/3CdvcTOH01EXzXu96afkSN',
+          id: '3CdvcTOH01EXzXu96afkSN',
+          name: 'Yukon Blonde',
+          popularity: 34
+        },
+        {
+          genres: [ 'alternative r&b', 'la pop' ],
+          href: 'https://api.spotify.com/v1/artists/3QTDHixorJelOLxoxcjqGx',
+          id: '3QTDHixorJelOLxoxcjqGx',
+          name: 'SiR',
+          popularity: 62
+        },
+        {
+          genres: [ 'kentucky indie', 'kentucky roots', 'outlaw country' ],
+          href: 'https://api.spotify.com/v1/artists/13ZEDW6vyBF12HYcZRr4EV',
+          id: '13ZEDW6vyBF12HYcZRr4EV',
+          name: 'Tyler Childers',
+          popularity: 76
+        },
+        {
+          genres: [
+            'chamber pop',
+            'eau claire indie',
+            'indie folk',
+            'melancholia',
+            'modern rock'
+          ],
+          href: 'https://api.spotify.com/v1/artists/4LEiUm1SRbFMgfqnQTwUbQ',
+          id: '4LEiUm1SRbFMgfqnQTwUbQ',
+          name: 'Bon Iver',
+          popularity: 73
+        },
+        {
+          genres: [
+            'gangster rap',
+            'hip hop',
+            'pop rap',
+            'rap',
+            'southern hip hop',
+            'trap'
+          ],
+          href: 'https://api.spotify.com/v1/artists/5IcR3N7QB1j6KBL8eImZ8m',
+          id: '5IcR3N7QB1j6KBL8eImZ8m',
+          name: 'ScHoolboy Q',
+          popularity: 70
+        },
+        {
+          genres: [
+            'hip hop',
+            'pittsburgh rap',
+            'pop rap',
+            'rap',
+            'southern hip hop',
+            'trap'
+          ],
+          href: 'https://api.spotify.com/v1/artists/137W8MRPWKqSmrBGDBFSop',
+          id: '137W8MRPWKqSmrBGDBFSop',
+          name: 'Wiz Khalifa',
+          popularity: 79
+        },
+        {
+          genres: [],
+          href: 'https://api.spotify.com/v1/artists/2exebQUDoIoT0dXA8BcN1P',
+          id: '2exebQUDoIoT0dXA8BcN1P',
+          name: 'Home',
+          popularity: 59
+        },
+        {
+          genres: [
+            'compositional ambient',
+            'experimental classical',
+            'icelandic classical',
+            'icelandic experimental',
+            'nordic soundtrack',
+            'soundtrack'
+          ],
+          href: 'https://api.spotify.com/v1/artists/3IpQziA6YwD53PQ5xbwgLF',
+          id: '3IpQziA6YwD53PQ5xbwgLF',
+          name: 'Jóhann Jóhannsson',
+          popularity: 62
+        },
+        {
+          genres: [ 'indie folk', 'stomp and holler' ],
+          href: 'https://api.spotify.com/v1/artists/0wyMPXGfOuQzNR54ujR9Ix',
+          id: '0wyMPXGfOuQzNR54ujR9Ix',
+          name: 'Caamp',
+          popularity: 67
+        },
+        {
+          genres: [],
+          href: 'https://api.spotify.com/v1/artists/0jujLyW23c4YvBZR6h5vs1',
+          id: '0jujLyW23c4YvBZR6h5vs1',
+          name: 'Flapjaques',
+          popularity: 34
+        },
+        {
+          genres: [
+            'conscious hip hop',
+            'hip hop',
+            'rap',
+            'underground hip hop'
+          ],
+          href: 'https://api.spotify.com/v1/artists/68kEuyFKyqrdQQLLsmiatm',
+          id: '68kEuyFKyqrdQQLLsmiatm',
+          name: 'Vince Staples',
+          popularity: 65
+        },
+        {
+          genres: [ 'edm', 'pop dance', 'progressive electro house' ],
+          href: 'https://api.spotify.com/v1/artists/1h6Cn3P4NGzXbaXidqURXs',
+          id: '1h6Cn3P4NGzXbaXidqURXs',
+          name: 'Swedish House Mafia',
+          popularity: 74
+        },
+        {
+          genres: [ 'album rock', 'classic rock', 'hard rock', 'rock' ],
+          href: 'https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp',
+          id: '36QJpDe2go2KgaRleHCDTp',
+          name: 'Led Zeppelin',
+          popularity: 75
+        },
+        {
+          genres: [],
+          href: 'https://api.spotify.com/v1/artists/1LD84W4loy082VZ4Mw7Td8',
+          id: '1LD84W4loy082VZ4Mw7Td8',
+          name: 'Rhys Lindsay',
+          popularity: 37
+        }
+      ]
+    }
+  }
+}
