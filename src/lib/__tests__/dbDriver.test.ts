@@ -4,9 +4,20 @@
 */
 
 import mongoose, { ConnectOptions } from 'mongoose'
-import { MongoProfile, MongoComparison, deleteAllUsersComparisons } from '../connect-mongo'
-import { Profile } from '../../models/Profile';
-import { Analysis } from '../../models/Analysis';
+
+import { 
+    MongoProfile, 
+    MongoComparison,
+    deleteAllUsersComparisons 
+} from '../connect-mongo'
+
+import { Analysis } from '../../models/Analysis'
+import { Artist } from '../../models/Artist'
+import { Comparison } from '../../models/Comparison'
+import { Genre } from '../../models/Genre'
+import { Profile } from '../../models/Profile'
+import { Track } from '../../models/Track'
+
 import {
     createComparison,
     createUserProfile,
@@ -18,10 +29,6 @@ import {
     getUsersComparisons,
     getUserProfileBySpotifyUsername
 } from '../dbDriver'
-import { Genre } from '../../models/Genre';
-import { Track } from '../../models/Track';
-import { Artist } from '../../models/Artist';
-import { Comparison } from '../../models/Comparison';
 
 describe('Database Driver', () => {
     beforeAll(async () => {
@@ -35,7 +42,7 @@ describe('Database Driver', () => {
         } catch (error) {
             console.log('Database Connection Error')
         }
-    });
+    })
 
     afterEach(async () => {
         // Remove the test document from the database after the tests
@@ -48,7 +55,7 @@ describe('Database Driver', () => {
         if (mongoose.connection.readyState !== 0) {
             await mongoose.disconnect();
         }
-    });
+    })
 
     describe('createUserProfile()', () => {
         it('should return true after saving the valid user profile provided in the database', async () => {

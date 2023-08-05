@@ -1,3 +1,8 @@
+/*
+* @group unit
+* @group service
+*/
+
 import { ArtistEntry } from '../../lib/types'
 
 import { Artist } from "../../models/Artist"

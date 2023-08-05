@@ -5,7 +5,7 @@ module.exports = {
     //   "<rootDir>/tests/integration-tests/dotenv-config.ts"
     // ],
     testMatch: ["**/*.test.ts", "**/*.test.js"],
-    testPathIgnorePatterns: ["./node_modules/", "./build/", "/dist/", "./delete-this-random-functions"],
+    testPathIgnorePatterns: ["./node_modules/", "./build/", "/dist/", "./old-code"],
     coveragePathIgnorePatterns: [],
     verbose: true,
     forceExit: true,

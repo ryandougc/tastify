@@ -3,8 +3,6 @@ import * as bodyParser from "body-parser"
 import mongoose, { ConnectOptions } from "mongoose"
 import morgan from "morgan"
 
-// import DB from './connect-pg'
-
 import { router as authRoutes } from "../routes/auth.route"
 import { router as coreRoutes } from "../routes/core.route"
 
@@ -26,15 +24,14 @@ export default class App {
     }
 
     async initDB() {
-        // Connect to the MongoDB database
         try {
-            await mongoose.connect('mongodb+srv://ryan:Sportking11!@cluster0.v1mw48k.mongodb.net/?retryWrites=true&w=majority', {
+            await mongoose.connect(process.env.MONGO_DATABASE_URL, {
                 dbName: process.env.MONGO_DATABASE_NAME,
                 useNewUrlParser: true,
                 useUnifiedTopology: true
             } as ConnectOptions)
         } catch (error) {
-            console.log('Database Connection Error')
+            throw new Error(error.message)
         }
     }
 

@@ -1,13 +1,11 @@
-import { checkErrors } from "../validators/checkErrors";
+import { Comparison } from "../models/Comparison"
+import { Profile } from "../models/Profile"
+
+import { checkErrors } from "../validators/checkErrors"
 import {
-    validateUserDetails,
-    validateUserIdParameter,
     validateComparisonDetails,
-    validateTwoUserIdParameters
-} from "../validators/validator";
-import { Profile } from "../models/Profile";
-import { Analysis } from "../models/Analysis";
-import { Comparison } from "../models/Comparison";
+    validateUsersSpotifyUsername
+} from "../validators/validator"
 
 // export const createProfile = [
 //     validateUserDetails,
@@ -219,37 +217,41 @@ export const getUsersTop50 = async (req, res, next) => {
     }
 }
 
-export const getUsersFriends = [
-    validateUserIdParameter,
-    checkErrors,
-    async (req, res, next) => {
-        try {
-            const profileId: string = req.body.profileId
+export const getUsersFriends = async (req, res, next) => {
+    try {
+        const spotifyUsername: string = res.locals.spotifyUsername
 
-            // Check if user exists and retrieve their profile
-            const foundProfile: Profile = await Profile.getUserProfile(profileId)
+        // Check if user exists and retrieve their profile
+        const foundProfile: Profile = await Profile.getUserProfile(spotifyUsername)
 
-            // Search database for comparisons that involve the users Id
-            const usersComparisons: Array<Comparison> = await foundProfile.getUsersListOfComparisons()
+        // Search database for comparisons that involve the users Id
+        const usersComparisons: Array<Comparison> = await foundProfile.getUsersListOfComparisons()
 
-            // Return array of comparison objects
-            res.status(200).json({
-                success: true,
-                status: 200,
-                message: "List of user's comparisons have been successfully retrieved",
-                data: usersComparisons
-            })
-        } catch (error) {
-            console.log(error);
-
+        // Return array of comparison objects
+        res.status(200).json({
+            success: true,
+            status: 200,
+            message: "List of user's comparisons have been successfully retrieved",
+            data: usersComparisons
+        })
+    } catch (error) {
+        if(error.message === "This user could not be found in the database") {
             return next({
                 success: false,
-                status: 500,
-                message: "Uh oh, something went wrong on our side",
-            });
+                status: 404,
+                message: "This user could not be found",
+            })
         }
+
+        console.log(error)
+
+        return next({
+            success: false,
+            status: 500,
+            message: "Uh oh, something went wrong on our side",
+        })
     }
-]
+}
 
 export const createComparison = [
     validateComparisonDetails,
@@ -272,6 +274,14 @@ export const createComparison = [
                 message: "Comparison has been successfully created"
             })
         } catch (error) {
+            if(error.message === "This user could not be found in the database") {
+                return next({
+                    success: false,
+                    status: 404,
+                    message: "This user could not be found",
+                })
+            }
+
             console.log(error);
 
             return next({
@@ -284,15 +294,15 @@ export const createComparison = [
 ]
 
 export const getComparison = [
-    validateTwoUserIdParameters,
+    validateUsersSpotifyUsername,
     checkErrors,
     async (req, res, next) => {
         try {
-            const user1ProfileId: string = req.body.user1
-            const user2ProfileId: string = req.body.user2
+            const spotifyUsername: string = res.locals.spotifyUsername
+            const friendsSpotifyUsername: string = req.query.spotifyUsername
 
             // Check comparison with both users exists
-            const foundComparison: Comparison = await Comparison.get(user1ProfileId, user2ProfileId)
+            const foundComparison: Comparison = await Comparison.get(spotifyUsername, friendsSpotifyUsername)
 
             // Return Comparison
             res.status(200).json({
@@ -302,27 +312,35 @@ export const getComparison = [
                 data: foundComparison
             })
         } catch (error) {
-            console.log(error);
+            if(error.message === "This user could not be found in the database") {
+                return next({
+                    success: false,
+                    status: 404,
+                    message: "This user could not be found",
+                })
+            }
+
+            console.log(error)
 
             return next({
                 success: false,
                 status: 500,
                 message: "Uh oh, something went wrong on our side",
-            });
+            })
         }
     }
 ]
 
 export const deleteComparison = [
-    validateTwoUserIdParameters,
+    validateUsersSpotifyUsername,
     checkErrors,
     async (req, res, next) => {
         try {
-            const user1ProfileId: string = req.body.user1
-            const user2ProfileId: string = req.body.user2
+            const spotifyUsername: string = res.locals.spotifyUsername
+            const friendsSpotifyUsername: string = req.query.spotifyUsername
 
             // Check comparison exists
-            const foundComparison: Comparison = await Comparison.get(user1ProfileId, user2ProfileId)
+            const foundComparison: Comparison = await Comparison.get(spotifyUsername, friendsSpotifyUsername)
 
             // Delete comparison in DB
             await foundComparison.delete()
@@ -334,13 +352,21 @@ export const deleteComparison = [
                 message: "Comparison has successfully been deleted"
             })
         } catch (error) {
-            console.log(error);
+            if(error.message === "This user could not be found in the database") {
+                return next({
+                    success: false,
+                    status: 404,
+                    message: "This user could not be found",
+                })
+            }
+
+            console.log(error)
 
             return next({
                 success: false,
                 status: 500,
                 message: "Uh oh, something went wrong on our side",
-            });
+            })
         }
     }
 ]

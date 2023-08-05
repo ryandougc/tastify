@@ -1,0 +1,671 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/ryandougc/Tastify/2.0.0
+info:
+  description: A music taste analysis and comparison tool.
+  version: 2.0.0
+  title: Tastify
+  contact:
+    name: Ryan
+    email: hello@ryancarr.ca
+  license: #change this
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+#tags:
+#  - name: "admins"
+#    description: "Secured Admin-only calls"
+#  - name: "developers"
+#    description: "Operations available to regular developers"
+paths:
+  /login:
+    get:
+      summary: login a user
+      operationId: login
+      description: Call GET on this route to receive a URI for logging in to Spotify. By re-directing to that URI, the user will be able to login in with Spotify and authorize this application. 
+      
+        After the front-end redirects the user to the URI and the user signs in to Spotify and authorizes the app, they will automatically be redirected back to this application. The backend will handle them first, receiving an access token and refresh token from the Spotify API. It will also get a the user's profileID. It returns the user to the front-end with the accessToken, refreshToken and profileId.
+      responses:
+        '200': 
+          description: login URI received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  loginSpotifyApiUri: 
+                    type: string
+                    description: The re-direct link to send a user to the Spotify API login page
+              example:
+                loginSpotifyApiUri: https://accounts.spotify.com/authorize?response_type=code&client_id=af7c1fe6-d669-414e-b066-e9733f0de7a8&scope=user-library-read%20user-top-read&redirect_uri=https://api.ca/callback&state=08c71152-c552-42e7-b094-f510ff44e9cb
+        '5XX':
+          $ref: '#/components/responses/serverError'
+  /refresh:
+    get:
+      summary: refresh a user's access token
+      operationId: refresh
+      description: Using the refresh token provided when a user logs in, a new access token can be retrieved from the Spotify API without the need for the user to log in again. A new access token will be returned.
+      parameters:
+        - in: query
+          name: refreshToken
+          schema:
+            type: string
+          required: true
+          description: Numeric ID of the user to get
+          example: dGhpcyBpcyBhIHJhbmRvbSByZWZyZXNoIHRva2Vu
+      responses:
+        '200': 
+          description: authorization token refreshed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken: 
+                    type: string
+                    description: A newly generated access token
+              example:
+                accessToken: d2VsbCBoZXJlIGlzIGFub3RoZXIgcmFuZG9tIHJlZnJlc2ggdG9rZW4=
+        '5XX':
+          $ref: '#/components/responses/serverError'
+  /user:
+    get:
+      summary: retrieves a user's profile
+      operationId: getUser
+      description: Retrieve a profile for a user who corresponds to the access token provided. The data returned will be their profile, their genre analysis and their top 50 artists and songs.
+      security:
+        - accessToken: []
+      responses:
+        '200':
+          description: user profile
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Profile'
+              examples:
+                profileWithNoAnalysis:
+                  $ref: '#/components/examples/exampleOfProfileWithNoAnalysis'
+                profileWithAnalysis:
+                  $ref: '#/components/examples/exampleOfProfileWithAnalysis'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '5XX':
+          $ref: '#/components/responses/serverError'
+    delete:
+      summary: delete a user's profile
+      operationId: deleteUser
+      description: Delete a user's profile and all their data saved in the database
+      security:
+        - accessToken: []
+      responses:
+        '200':
+          description: user deleted
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '5XX':
+          $ref: '#/components/responses/serverError'
+  /user/analysis:
+    get:
+      summary: retrieve a user's genre analysis
+      operationId: retrieveAnalysis
+      description: Retrieve a genre analysis for a user who corresponds to the access token provided. If they don't have an exists genre analysis, an analysis will be generated for them from the Spotify API.
+      security:
+        - accessToken: []
+      responses:
+        '200':
+          description: user music taste analysis
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Analysis'
+              examples:
+                analysis:
+                  $ref: '#/components/examples/exampleOfAnalysis'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '5XX':
+          $ref: '#/components/responses/serverError'
+  /user/top50:
+    get:
+      summary: retrieve a user's top 50 tracks and top 50 artists
+      operationId: retrieveTop50
+      description: Retrieve the top 50 artists and top 50 tracks for a user who corresponds to the access token provided. If they don't have existing top 50 data saved to their profile, this data will be retrieved from the Spotify API.
+      security:
+        - accessToken: []
+      responses:
+        '200':
+          description: An object with the user's top 50 listened to tracks and artists
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Top50'
+              examples:
+                top50:
+                  $ref: '#/components/examples/exampleOfTop50'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '5XX':
+          $ref: '#/components/responses/serverError'
+  /user/friends:
+    get:
+      summary: retrieve a list of a user's friends
+      operationId: retrieveUserFriends
+      description: Retrieve a list of friends for a user who corresponds to the access token provided.
+      security:
+        - accessToken: []
+      responses:
+        '200':
+          description: Array with a user's friends
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Profile'
+              examples:
+                userHasFriends:
+                  $ref: '#/components/examples/exampleOfUsersFriendlist'
+                userHasNoFriends:
+                  value: []
+                  summary: User has no friends
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '5XX':
+          $ref: '#/components/responses/serverError'
+  /comparison:
+    post:
+      summary: creates a new friendship
+      operationId: createComparison
+      description: Create a friendship with a given user and the user who corresponds to the access token provided.
+      security:
+        - accessToken: []
+      responses:
+        '201':
+          description: comparison created
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '409':
+          description: users are already friends
+        '5XX':
+          $ref: '#/components/responses/serverError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - friendsSpotifyUsername
+              properties:
+                friendsSpotifyUsername:
+                  type: string
+            example:
+              friendsSpotifyUsername: MacMiller
+        description: Spotify username of the person you want to create a friendship with
+  /comparison/{spotifyUsername}:
+    parameters:
+      - in: path
+        name: spotifyUsername
+        required: true
+        description: spotify username of a user who is friends with the user who corresponds to the access token provided.
+        schema:
+          type: string
+          example: Miguel
+    get:
+      summary: retrieve a music comparison
+      operationId: retrieveComparison
+      description: Retrieve a friend's profile and the profile of the user who corresponds to the access token provided.
+      security:
+        - accessToken: []
+      responses:
+        '200':
+          description: array containing both user's profiles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Profile'
+              examples:
+                fullFriendshipData:
+                  $ref: '#/components/examples/exampleOfRetrievingFriendship'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '5XX':
+          $ref: '#/components/responses/serverError'
+    delete:
+      summary: deletes the specified friendship
+      operationId: deleteComparison
+      description: Delete a friendship between the spotify username provided and the user who corresponds to the access token provided.
+      security:
+        - accessToken: []
+      responses:
+        '200':
+          description: "comparison deleted"
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '5XX':
+          $ref: '#/components/responses/serverError'
+components:
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    profileIdParam:
+      in: path
+      name: profileId
+      required: true
+      schema:
+        type: string
+        example: 67e90ece-cece-471c-bdda-b7bc18e45856
+      description: The unique profileID to specify which user's profile you want to interact with
+    accessTokenHeader:
+      in: header
+      name: Authorization
+      schema:
+        type: string
+      required: true
+      description: The user's given spotify access token
+  schemas:
+    Profile:
+      type: object
+      required:
+        - profileId
+        - spotifyUsername
+      properties:
+        profileId:
+          type: integer
+          format: int64
+        spotifyUsername:
+          type: string
+        dateCreated:
+          type: string
+        analysis:
+          $ref: "#/components/schemas/Analysis"
+    Analysis:
+      type: object
+      properties:
+        genres: 
+          type: array
+          items:
+            $ref: "#/components/schemas/Genre"
+        top50:
+          type: array
+          items: 
+            $ref: "#/components/schemas/Top50"
+      description: "A user's profile"
+    Artist:
+      type: object
+      properties:
+        genres:
+          type: array
+          items: 
+            type: string
+        href:
+          type: string
+        id: 
+          type: string
+        name:
+          type: string
+        popularity:
+          type: integer
+          format: int64
+    ArtistEntry:
+      type: object
+      properties:
+        artist: 
+          $ref: '#/components/schemas/Artist'
+        trackCount:
+          type: integer
+          format: int64
+      description: "The ArtistEntry object holds an Artist object, and has a corresponding count for the number of tracks from that artist the user has added to a playlist"
+    Track:
+      type: object
+      properties:
+        artists:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Artist"
+        href:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum: [ "track" ]
+      description: "A Track object holds the details and identifiers for a track"
+    TrackEntry:
+      type: object
+      properties:
+        track:
+          $ref: "#/components/schemas/Track"
+        count:
+          type: integer
+          format: int64
+      description: "The TrackEntry object holds a Track object and has a corresponding count property for the number of times that user has added that track to a playlist"
+    Genre:
+      type: object
+      properties:
+        name: 
+          type: string
+        trackCount:
+          type: integer
+          format: int64
+        tracks:
+          type: array
+          items: 
+            $ref: "#/components/schemas/TrackEntry"
+        artists:
+          type: array
+          items:
+            $ref: "#/components/schemas/ArtistEntry"
+      description: "A genre object holds the data for one of the genres that a user listens to. It holds information on how many songs a user listens to in that genre and specifies which songs and artists fall under that genre"
+    Top50:
+      type: object
+      properties:
+        tracks:
+          type: array
+          items:
+            $ref: "#/components/schemas/Track"
+        artists:
+          type: array
+          items:
+            $ref: "#/components/schemas/Artist"
+    Comparison:
+      type: object
+      properties:
+        user1:
+          type: string
+        user2:
+          type: string
+        dateCreated:
+          type: string
+      description: "Two users connected by a friendship. User1 property must be < User2 property. Together, user1 and user2 are a composite key."
+  examples:
+    exampleOfProfileWithNoAnalysis:
+      value:
+        profileId: 67e90ece-cece-471c-bdda-b7bc18e45856
+        spotifyUsername: JayZ
+        dateCreated: "1679713086246"
+        analysis: 
+          genres: []
+      summary: A user's profile that has just been created and doesn't have an analysis yet
+    exampleOfProfileWithAnalysis:
+      value:
+        profileId: 67e90ece-cece-471c-bdda-b7bc18e45856
+        spotifyUsername: JayZ
+        dateCreated: "1679713086246"
+        analysis: 
+          genres:
+            - name: Country
+              count: 3
+              tracks: 
+                - artists: 
+                    - name: Luke Combs
+                      id: 718COspgdWOnwOFpJHRZHS
+                  href: 'https://api.spotify.com/v1/tracks/7aEtlGHoiPAfRB084NiDmx'
+                  id: 7aEtlGHoiPAfRB084NiDmx
+                  name: Beer Never Broke My Heart
+                  type: track
+                - artists:
+                    - name: Chris Stapleton
+                      id: 4YLtscXsxbVgi031ovDDdh
+                  href: 'https://api.spotify.com/v1/albums/7lxHnls3yQNl8B9bILmHj7'
+                  id: 3fqwjXwUGN6vbzIwvyFMhx
+                  name: Tennessee Whiskey
+                  type: track
+                - artists:
+                    - name: Luke Combs
+                      id: 718COspgdWOnwOFpJHRZHS
+                  href: 'https://api.spotify.com/v1/tracks/1mMLMZYXkMueg65jRRWG1l'
+                  id: 1mMLMZYXkMueg65jRRWG1l
+                  name: When It Rains It Pours
+                  type: track
+              artists:
+                - genres:
+                    - Contemporary Country
+                    - Country
+                  href: 'https://api.spotify.com/v1/artists/718COspgdWOnwOFpJHRZHS'
+                  id: 718COspgdWOnwOFpJHRZHS
+                  name: Luke Combs
+                  popularity: 85
+                - genres:
+                    - Contemporary Country
+                    - Outlaw Country
+                  href: 'https://api.spotify.com/v1/artists/4YLtscXsxbVgi031ovDDdh'
+                  id: 4YLtscXsxbVgi031ovDDdh
+                  name: Chris Stapleton
+                  popularity: 81
+      summary: A profile that has an analysis generated and saved to it
+    exampleOfAnalysis:
+      value:
+        genres: 
+          - name: Country
+            count: 3
+            tracks: 
+              - artists: 
+                  - name: Luke Combs
+                    id: 718COspgdWOnwOFpJHRZHS
+                href: 'https://api.spotify.com/v1/tracks/7aEtlGHoiPAfRB084NiDmx'
+                id: 7aEtlGHoiPAfRB084NiDmx
+                name: Beer Never Broke My Heart
+                type: track
+              - artists:
+                  - name: Chris Stapleton
+                    id: 4YLtscXsxbVgi031ovDDdh
+                href: 'https://api.spotify.com/v1/albums/7lxHnls3yQNl8B9bILmHj7'
+                id: 3fqwjXwUGN6vbzIwvyFMhx
+                name: Tennessee Whiskey
+                type: track
+              - artists: 
+                  - name: Luke Combs
+                    id: 718COspgdWOnwOFpJHRZHS
+                href: 'https://api.spotify.com/v1/tracks/1mMLMZYXkMueg65jRRWG1l'
+                id: 1mMLMZYXkMueg65jRRWG1l
+                name: When It Rains It Pours
+                type: track
+            artists:
+              - genres:
+                  - Contemporary Country
+                  - Country
+                href: 'https://api.spotify.com/v1/artists/718COspgdWOnwOFpJHRZHS'
+                id: 718COspgdWOnwOFpJHRZHS
+                name: Luke Combs
+                popularity: 85
+              - genres:
+                  - Contemporary Country
+                  - Outlaw Country
+                href: 'https://api.spotify.com/v1/artists/4YLtscXsxbVgi031ovDDdh'
+                id: 4YLtscXsxbVgi031ovDDdh
+                name: Chris Stapleton
+                popularity: 81
+      summary: A user's music taste analysis
+    exampleOfTop50:
+      value:
+        tracks: 
+          - artists: 
+              - name: Luke Combs
+                id: 718COspgdWOnwOFpJHRZHS
+            href: 'https://api.spotify.com/v1/tracks/7aEtlGHoiPAfRB084NiDmx'
+            id: 7aEtlGHoiPAfRB084NiDmx
+            name: Beer Never Broke My Heart
+            type: track
+          - artists:
+              - name: Chris Stapleton
+                id: 4YLtscXsxbVgi031ovDDdh
+            href: 'https://api.spotify.com/v1/albums/7lxHnls3yQNl8B9bILmHj7'
+            id: 3fqwjXwUGN6vbzIwvyFMhx
+            name: Tennessee Whiskey
+            type: track
+          - artists: 
+              - name: Luke Combs
+                id: 718COspgdWOnwOFpJHRZHS
+            href: 'https://api.spotify.com/v1/tracks/1mMLMZYXkMueg65jRRWG1l'
+            id: 1mMLMZYXkMueg65jRRWG1l
+            name: When It Rains It Pours
+            type: track
+        artists:
+          - genres:
+              - Contemporary Country
+              - Country
+            href: 'https://api.spotify.com/v1/artists/718COspgdWOnwOFpJHRZHS'
+            id: 718COspgdWOnwOFpJHRZHS
+            name: Luke Combs
+            popularity: 85
+          - genres:
+              - Contemporary Country
+              - Outlaw Country
+            href: 'https://api.spotify.com/v1/artists/4YLtscXsxbVgi031ovDDdh'
+            id: 4YLtscXsxbVgi031ovDDdh
+            name: Chris Stapleton
+            popularity: 81
+      summary: Top 50 listened to tracks and artists
+    exampleOfUsersFriendlist:
+      value:
+        - user1: 67e90ece-cece-471c-bdda-b7bc18e45856
+          user2: 9aed7798-0930-46c0-85b9-16cc4494d5ef
+          dateCreated: '1680114709213'
+        - user1: a9f12104-13d0-426b-90b9-579d9c0b0444
+          user2: 67e90ece-cece-471c-bdda-b7bc18e45856
+          dateCreated: '1680114709213'
+        - user1: 67e90ece-cece-471c-bdda-b7bc18e45856
+          user2: c209fb9e-80d5-45d9-a02e-e6c68dd16c93
+          dateCreated: '1680114709213'
+      summary: A user's list of friends
+    exampleOfFriendship:
+      value:
+        user1: 67e90ece-cece-471c-bdda-b7bc18e45856
+        user2: 9aed7798-0930-46c0-85b9-16cc4494d5ef
+        dateCreated: '1680114709213'
+      summary: A friendship holds both users ids and a date the friendship was created
+    exampleOfRetrievingFriendship:
+      value:
+        usersProfile:
+          profileId: 67e90ece-cece-471c-bdda-b7bc18e45856
+          spotifyUsername: JayZ
+          dateCreated: "1679713086246"
+          analysis: 
+            tracks: 
+              - artists: 
+                  - name: Luke Combs
+                    id: 718COspgdWOnwOFpJHRZHS
+                href: 'https://api.spotify.com/v1/tracks/7aEtlGHoiPAfRB084NiDmx'
+                id: 7aEtlGHoiPAfRB084NiDmx
+                name: Beer Never Broke My Heart
+                type: track
+              - artists:
+                  - name: Chris Stapleton
+                    id: 4YLtscXsxbVgi031ovDDdh
+                href: 'https://api.spotify.com/v1/albums/7lxHnls3yQNl8B9bILmHj7'
+                id: 3fqwjXwUGN6vbzIwvyFMhx
+                name: Tennessee Whiskey
+                type: track
+              - artists: 
+                  - name: Luke Combs
+                    id: 718COspgdWOnwOFpJHRZHS
+                href: 'https://api.spotify.com/v1/tracks/1mMLMZYXkMueg65jRRWG1l'
+                id: 1mMLMZYXkMueg65jRRWG1l
+                name: When It Rains It Pours
+                type: track
+            artists:
+              - genres:
+                  - Contemporary Country
+                  - Country
+                href: 'https://api.spotify.com/v1/artists/718COspgdWOnwOFpJHRZHS'
+                id: 718COspgdWOnwOFpJHRZHS
+                name: Luke Combs
+                popularity: 85
+              - genres:
+                  - Contemporary Country
+                  - Outlaw Country
+                href: 'https://api.spotify.com/v1/artists/4YLtscXsxbVgi031ovDDdh'
+                id: 4YLtscXsxbVgi031ovDDdh
+                name: Chris Stapleton
+                popularity: 81
+        friendsProfile:
+          profileId: 9aed7798-0930-46c0-85b9-16cc4494d5ef
+          spotifyUsername: Elton John
+          dateCreated: "1680120548741"
+          analysis: 
+            tracks: 
+              - artists: ["Phoebe Bridgers"]
+                href: 'https://api.spotify.com/v1/tracks/1WCjhRs2WBgyeGaybCX2Po'
+                id: 1WCjhRs2WBgyeGaybCX2Po
+                name: Graceland Too
+                type: track
+              - artists: ["Bon Iver"]
+                href: 'https://api.spotify.com/v1/tracks/7rIhp6EWLNtM8qFIQruJPT'
+                id: 7rIhp6EWLNtM8qFIQruJPT
+                name: Wash.
+                type: track
+            artists:
+              - genres:
+                  - indie pop
+                  - la indie
+                href: 'https://api.spotify.com/v1/artists/1r1uxoy19fzMxunt3ONAkG'
+                id: 1r1uxoy19fzMxunt3ONAkG
+                name: Phoebe Bridgers
+                popularity: 79
+              - genres:
+                  - eau claire indie
+                  - indie folk
+                  - melancholia
+                href: 'https://api.spotify.com/v1/artists/4LEiUm1SRbFMgfqnQTwUbQ'
+                id: 4LEiUm1SRbFMgfqnQTwUbQ
+                name: Bon Iver
+                popularity: 76
+        dateCreated: '1680114709213'
+      summary: Comparison of two user's music analysis
+  responses:
+    badInput:
+      description: bad input parameter
+    badRequest:
+      description: bad request
+    unauthorized:
+      description: unauthorized action
+    notFound:
+      description: the specified resource was not found
+    serverError:
+      description: unexpected error

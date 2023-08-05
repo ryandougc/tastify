@@ -1,7 +1,10 @@
 node_modules
-dist
 .env
-delete-this-random-functions
-coverage
-var/db/sessions.db
 test.env
+
+dist
+var/db/sessions.db
+
+/old-code
+/delete-this-random-functions
+/coverage

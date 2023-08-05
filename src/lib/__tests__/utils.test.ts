@@ -1,5 +1,8 @@
-import { generateRandomString, sortUsernames } from "../utils";
+/*
+* @group unit
+*/
 
+import { generateRandomString, sortUsernames } from "../utils";
 
 describe("randomString()", () => {
     it("should return a random string whose length matches the number provided", async () => {

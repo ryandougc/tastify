@@ -1,5 +1,6 @@
 /*
 * @group unit
+* @group service
 */
 
 import { getPlaylistTracksService } from "../getPlaylistTracks";

@@ -2,20 +2,21 @@
 * @group integration
 * @group api
 */
+
 import * as dotenv from "dotenv";
 import * as path from "path";
 import supertest from 'supertest'
 import mongoose from 'mongoose'
+
 import App from '../src/lib/app'
-import * as db from '../src/lib/dbDriver'
 import {
     MongoProfile,
     MongoComparison
 } from '../src/lib/connect-mongo'
-import { Profile } from "../src/models/Profile";
+import { Profile } from "../src/models/Profile"
 
 // Global Setup
-dotenv.config({ path: path.join(__dirname, "./test.env") });
+dotenv.config({ path: path.join(__dirname, "./test.env") })
 const app = new App().express
 
 const accessToken = process.env.SPOTIFY_API_ACCESS_TOKEN
