@@ -9,7 +9,8 @@
         "testCodeCoverage": "jest --coverage --verbose=false",
         "compile": "tsc",
         "compiler": "tsc --watch",
-        "devStart": "nodemon ./dist/server"
+        "devStart": "nodemon ./dist/server",
+        "start": "node ./dist/server"
     },
     "author": "",
     "license": "ISC",
