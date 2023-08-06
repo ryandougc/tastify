@@ -74,7 +74,7 @@ export const generateAnalysis = async (req, res, next) => {
 
         const foundProfile: Profile = await Profile.getUserProfile(spotifyUsername)
 
-        if(foundProfile.analysis.genres.length > 0) {
+        if(foundProfile.analysis.genres !== null) {
             res.status(200).json({
                 success: true,
                 message: "Profile has successfully been analyzed",

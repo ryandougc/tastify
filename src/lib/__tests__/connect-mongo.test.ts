@@ -3,10 +3,12 @@
 * @group database
 */
 
-import mongoose from "mongoose";
-import { MongoMemoryServer } from "mongodb-memory-server";
-import { Profile } from "../../models/Profile";
-import { Comparison } from "../../models/Comparison";
+import mongoose from "mongoose"
+import { MongoMemoryServer } from "mongodb-memory-server"
+
+import { Profile } from "../../models/Profile"
+import { Comparison } from "../../models/Comparison"
+
 import {
     createUserProfile,
     getUserProfile,
@@ -43,7 +45,7 @@ describe('Mongo Database Functions', () => {
         if (mongoServer) {
             await mongoServer.stop()
         }
-    });
+    })
 
     describe('createUserProfile()', () => {
         it('should not throw if a valid Profile is provided and the database is connected', async () => {

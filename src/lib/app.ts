@@ -25,11 +25,13 @@ export default class App {
 
     async initDB() {
         try {
-            await mongoose.connect(process.env.MONGO_DATABASE_URL, {
-                dbName: process.env.MONGO_DATABASE_NAME,
-                useNewUrlParser: true,
-                useUnifiedTopology: true
-            } as ConnectOptions)
+            if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
+                await mongoose.connect(process.env.MONGO_DATABASE_URL, {
+                    dbName: process.env.MONGO_DATABASE_NAME,
+                    useNewUrlParser: true,
+                    useUnifiedTopology: true
+                } as ConnectOptions)
+            }
         } catch (error) {
             throw new Error(error.message)
         }

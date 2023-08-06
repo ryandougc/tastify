@@ -7,6 +7,7 @@ import * as dotenv from "dotenv";
 import * as path from "path";
 import supertest from 'supertest'
 import mongoose from 'mongoose'
+import { MongoMemoryServer } from "mongodb-memory-server"
 
 import App from '../src/lib/app'
 import {
@@ -17,11 +18,20 @@ import { Profile } from "../src/models/Profile"
 
 // Global Setup
 dotenv.config({ path: path.join(__dirname, "./test.env") })
-const app = new App().express
 
 const accessToken = process.env.SPOTIFY_API_ACCESS_TOKEN
 const expiredAccessToken: string = "Bearer BQApufA5PhGh4PmvaLyOkglqrs6VvFykLPpKj2Gp6g_IjmU9MmfE8G583fF70p89RUs73jQdqOJqPBtp8ll_EI4M_Z7I4bwILY0pMn46qUHg1HKY0erJmCS17XlH8SI-8CY_EiTF0wqhMTFZ4GtLA_S0FKt-PwM-J2SNkIzomxXqpYIEecpAkWPAehUCCG8Qtk3jkTEd3KC2Orb5gg"
 const invalidAccessToken: string = 'invalidToken'
+
+const app = new App().express
+
+// Setup mongo memory server
+let mongoServer: MongoMemoryServer
+
+beforeAll(async () => {
+    mongoServer = await MongoMemoryServer.create()
+    await mongoose.connect(mongoServer.getUri(), { dbName: "testing" })
+})
 
 afterEach(async () => {
     // Remove the test document from the database after the tests
@@ -32,6 +42,9 @@ afterEach(async () => {
 afterAll(async () => {
     if (mongoose.connection.readyState !== 0) {
         await mongoose.disconnect()
+    }
+    if (mongoServer) {
+        await mongoServer.stop()
     }
 })
 
