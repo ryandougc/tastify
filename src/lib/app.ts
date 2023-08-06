@@ -6,7 +6,7 @@ import morgan from "morgan"
 import { router as authRoutes } from "../routes/auth.route"
 import { router as coreRoutes } from "../routes/core.route"
 
-import { errorHandler, error404Handler } from "../routes/errorRoutes"
+import { errorHandler, error404Handler } from "../middleware/errorHandler"
 
 export default class App {
     public express
