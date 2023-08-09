@@ -8,15 +8,15 @@ import { Artist } from "../../models/Artist";
 
 import { getLikedTracksService } from "../getLikedTracks";
 
-import sampleLikedTracksNoNext from './sample_response_data/sample_likedTracks_response_noNext.json'
-import sampleLikedTracks1of2 from './sample_response_data/sample_likedTracks_response_1of2.json'
-import sampleLikedTracks2of2 from './sample_response_data/sample_likedTracks_response_2of2.json'
-import sampleLikedTracksNoData from './sample_response_data/sample_likedTracks_noData.json'
+import sampleLikedTracksNoNext from './sample_response_data/sample_likedTracks_response_noNext.json';
+import sampleLikedTracks1of2 from './sample_response_data/sample_likedTracks_response_1of2.json';
+import sampleLikedTracks2of2 from './sample_response_data/sample_likedTracks_response_2of2.json';
+import sampleLikedTracksNoData from './sample_response_data/sample_likedTracks_noData.json';
 
 // Mock Axios
 import axios from "axios";
 
-jest.mock('axios')
+jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('getLikedTracksService()', () => {
@@ -49,7 +49,7 @@ describe('getLikedTracksService()', () => {
             genres: []
         })
     })
-    it('should return an array of tracks given a valid user ID when multiple requests for tracks needs to be made', async () => {
+    it('should return an array of all tracks given a valid user ID when multiple requests for tracks needs to be made', async () => {
         mockedAxios.get.mockImplementation((url) => {
             switch(url) {
                 case "https://api.spotify.com/v1/me/tracks?offset=0&limit=50":
