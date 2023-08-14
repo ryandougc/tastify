@@ -11,7 +11,11 @@ export async function getLikedTracksService(): Promise<Array<Track>> {
         let tracklist: Array<Track> = []
         while (tracksRemaining) {
             // Get tracks
+            console.log("Here")
             const { data } = await axios.get(likedTracksURL);
+
+            console.log(data)
+
 
             const myTracksResponse = data
 
