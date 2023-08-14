@@ -2,7 +2,7 @@
     "name": "spotify_taste_comparison",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "./dist/serverjs",
     "scripts": {
         "test": "jest",
         "testWithClearCache": "jest --clearCache && jest",
