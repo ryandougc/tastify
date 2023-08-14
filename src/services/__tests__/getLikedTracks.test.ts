@@ -23,7 +23,7 @@ describe('getLikedTracksService()', () => {
     it('should return an array of tracks given a valid User ID', async () => {
         mockedAxios.get.mockImplementation((url) => {
             switch(url) {
-                case "https://api.spotify.com/v1/me/tracks?offset=0&limit=50":
+                case "https://api.spotify.com/v1/me/tracks?limit=50&offset=0":
                     return Promise.resolve({
                         data: sampleLikedTracksNoNext
                     })
@@ -52,7 +52,7 @@ describe('getLikedTracksService()', () => {
     it('should return an array of all tracks given a valid user ID when multiple requests for tracks needs to be made', async () => {
         mockedAxios.get.mockImplementation((url) => {
             switch(url) {
-                case "https://api.spotify.com/v1/me/tracks?offset=0&limit=50":
+                case "https://api.spotify.com/v1/me/tracks?limit=50&offset=0":
                     return Promise.resolve({
                         data: sampleLikedTracks1of2
                     })
@@ -85,7 +85,7 @@ describe('getLikedTracksService()', () => {
     it('should return an empty array when a user has no liked songs', async () => {
         mockedAxios.get.mockImplementation((url) => {
             switch(url) {
-                case "https://api.spotify.com/v1/me/tracks?offset=0&limit=50":
+                case "https://api.spotify.com/v1/me/tracks?limit=50&offset=0":
                     return Promise.resolve({
                         data: sampleLikedTracksNoData
                     })
