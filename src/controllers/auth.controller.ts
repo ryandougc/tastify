@@ -9,16 +9,28 @@ export const login = (req, res, next) => {
     const state = generateRandomString(16);
     const scope = "user-library-read user-top-read";
 
-    res.status(200).send(
-        "https://accounts.spotify.com/authorize?" +
-            queryString.stringify({
-                response_type: "code",
-                client_id: process.env.SPOTIFY_CLIENT_ID,
-                scope: scope,
-                redirect_uri: process.env.REDIRECT_URL,
-                state: state,
-            })
-    );
+    req.session.returnPage = req.query.return_page
+    req.session.save()
+
+    // res.status(200).json({
+    //     loginURI: "https://accounts.spotify.com/authorize?" +
+    //         queryString.stringify({
+    //             response_type: "code",
+    //             client_id: process.env.SPOTIFY_CLIENT_ID,
+    //             scope: scope,
+    //             redirect_uri: process.env.REDIRECT_URL,
+    //             state: state,
+    //         })
+    // });
+    res.redirect("https://accounts.spotify.com/authorize?" +
+        queryString.stringify({
+            response_type: "code",
+            client_id: process.env.SPOTIFY_CLIENT_ID,
+            scope: scope,
+            redirect_uri: process.env.REDIRECT_URL,
+            state: state,
+        })
+    )
 };
 
 export const callback = async (req, res, next) => {
@@ -80,11 +92,16 @@ export const callback = async (req, res, next) => {
                 newProfile.save()
             }
 
-            res.status(200).send({
-                accessnToken: accessToken,
-                refreshToken: refreshToken,
-                profileId: userData.data.id
-            });
+
+            res.redirect(req.session.returnPage + '?' +       
+                queryString.stringify({
+                    accessToken: accessToken,
+                    refreshToken: refreshToken,
+                    profileId: userData.data.id
+                })
+            )
+
+            delete req.session.returnPage
         } catch (err) {
             console.log(err);
 

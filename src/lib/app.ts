@@ -1,4 +1,5 @@
 import express from "express"
+import session from 'express-session'
 import * as bodyParser from "body-parser"
 import mongoose, { ConnectOptions } from "mongoose"
 import morgan from "morgan"
@@ -8,17 +9,29 @@ import { router as coreRoutes } from "../routes/core.route"
 
 import { errorHandler, error404Handler } from "../middleware/errorHandler"
 
+import { generateRandomString } from './utils'
+
 export default class App {
     public express
 
     constructor() {
         this.express = express()
+        this.initSessions()
         this.initBodyParser()
         // this.initLogging()
         this.initDB()
         this.mountRoutes()
     }
 
+    initSessions() {
+        this.express.use(session({
+            secret: generateRandomString(21),
+            resave: false,
+            saveUninitialized: true,
+            cookie: { secure: false }
+          }))
+    }
+    
     initBodyParser() {
         this.express.use(bodyParser.json({ type: 'application/json' }))
     }
