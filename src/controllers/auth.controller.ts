@@ -6,31 +6,44 @@ import { checkUserProfileExists } from "../lib/dbDriver";
 import { Profile } from "../models/Profile";
 
 export const login = (req, res, next) => {
-    const state = generateRandomString(16);
-    const scope = "user-library-read user-top-read";
-
-    req.session.returnPage = req.query.return_page
-    req.session.save()
-
-    // res.status(200).json({
-    //     loginURI: "https://accounts.spotify.com/authorize?" +
-    //         queryString.stringify({
-    //             response_type: "code",
-    //             client_id: process.env.SPOTIFY_CLIENT_ID,
-    //             scope: scope,
-    //             redirect_uri: process.env.REDIRECT_URL,
-    //             state: state,
-    //         })
-    // });
-    res.redirect("https://accounts.spotify.com/authorize?" +
-        queryString.stringify({
-            response_type: "code",
-            client_id: process.env.SPOTIFY_CLIENT_ID,
-            scope: scope,
-            redirect_uri: process.env.REDIRECT_URL,
-            state: state,
-        })
-    )
+    try {
+        const state = generateRandomString(16);
+        const scope = "user-library-read user-top-read";
+    
+        // Get return page from query parameters
+        if(!req.query.return_page || req.query.return_page === undefined) {
+            throw new Error("No return page was specified in the return_page query parameter")
+        }
+    
+        req.session.returnPage = req.query.return_page
+        req.session.save()
+    
+        // res.status(200).json({
+        //     loginURI: "https://accounts.spotify.com/authorize?" +
+        //         queryString.stringify({
+        //             response_type: "code",
+        //             client_id: process.env.SPOTIFY_CLIENT_ID,
+        //             scope: scope,
+        //             redirect_uri: process.env.REDIRECT_URL,
+        //             state: state,
+        //         })
+        // });
+        res.redirect("https://accounts.spotify.com/authorize?" +
+            queryString.stringify({
+                response_type: "code",
+                client_id: process.env.SPOTIFY_CLIENT_ID,
+                scope: scope,
+                redirect_uri: process.env.REDIRECT_URL,
+                state: state,
+            })
+        )
+    } catch(error) {
+        return next({
+            success: false,
+            status: 400,
+            message: error.message,
+        });
+    }
 };
 
 export const callback = async (req, res, next) => {
@@ -92,16 +105,23 @@ export const callback = async (req, res, next) => {
                 newProfile.save()
             }
 
+            if(req.session.returnPage) {
+                res.redirect(req.session.returnPage + '?' +       
+                    queryString.stringify({
+                        accessToken: accessToken,
+                        refreshToken: refreshToken,
+                        profileId: userData.data.id
+                    })
+                )
 
-            res.redirect(req.session.returnPage + '?' +       
-                queryString.stringify({
+                delete req.session.returnPage
+            } else {
+                res.status(200).json({
                     accessToken: accessToken,
                     refreshToken: refreshToken,
                     profileId: userData.data.id
                 })
-            )
-
-            delete req.session.returnPage
+            }
         } catch (err) {
             console.log(err);
 
